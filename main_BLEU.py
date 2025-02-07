@@ -112,6 +112,25 @@ documents = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
 split_docs = text_splitter.split_documents(documents)
 
+# Combine every 3 rows for conversational data
+# df = pd.read_csv(csv_file)
+# combined_rows = []
+# for i in range(0, len(df), 3):
+#     # Check if there are enough rows to form a complete set
+#     if i + 2 < len(df):
+#         combined_entry = f"{df.iloc[i]['object']} {df.iloc[i]['subject']} {df.iloc[i]['object']}; " \
+#                          f"{df.iloc[i+1]['object']} {df.iloc[i+1]['subject']} {df.iloc[i+1]['object']}; " \
+#                          f"{df.iloc[i+2]['object']} {df.iloc[i+2]['subject']} {df.iloc[i+2]['object']}"
+#         combined_rows.append(combined_entry)
+
+# # Convert combined rows to a DataFrame
+# combined_df = pd.DataFrame({'text': combined_rows})
+#for txt files if you are working on the conversation dataset
+# txt_file = "<path_to_txt_data_file>"
+# loader = TextLoader(file_path=txt_file, encoding="utf-8")  # Ensure correct encoding
+# documents = loader.load()
+# text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
+# split_documents = text_splitter.split_documents(documents)
 
 
 # Load JSON file and dynamically generate jq_schema for all months

@@ -85,19 +85,19 @@ generate_text = transformers.pipeline(
 # # Load CSV file of the knowledge graph generated
 csv_file = "<path_to_csv_file>"
 
-# #Combine every 3 rows
-df = pd.read_csv(csv_file)
-combined_rows = []
-for i in range(0, len(df), 3):
-    # Check if there are enough rows to form a complete set
-    if i + 2 < len(df):
-        combined_entry = f"{df.iloc[i]['object']} {df.iloc[i]['subject']} {df.iloc[i]['object']}; " \
-                         f"{df.iloc[i+1]['object']} {df.iloc[i+1]['subject']} {df.iloc[i+1]['object']}; " \
-                         f"{df.iloc[i+2]['object']} {df.iloc[i+2]['subject']} {df.iloc[i+2]['object']}"
-        combined_rows.append(combined_entry)
+# Combine every 3 rows for conversational data
+# df = pd.read_csv(csv_file)
+# combined_rows = []
+# for i in range(0, len(df), 3):
+#     # Check if there are enough rows to form a complete set
+#     if i + 2 < len(df):
+#         combined_entry = f"{df.iloc[i]['object']} {df.iloc[i]['subject']} {df.iloc[i]['object']}; " \
+#                          f"{df.iloc[i+1]['object']} {df.iloc[i+1]['subject']} {df.iloc[i+1]['object']}; " \
+#                          f"{df.iloc[i+2]['object']} {df.iloc[i+2]['subject']} {df.iloc[i+2]['object']}"
+#         combined_rows.append(combined_entry)
 
-# Convert combined rows to a DataFrame
-combined_df = pd.DataFrame({'text': combined_rows})
+# # Convert combined rows to a DataFrame
+# combined_df = pd.DataFrame({'text': combined_rows})
 # Load CSV
 df = pd.read_csv(csv_file)
 
@@ -126,9 +126,9 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=10
 split_docs = text_splitter.split_documents(documents)
 
 
-#Process JSON Data
+#Process JSON Data if you are working on the calendar dataset
 # Load JSON file and dynamically generate jq_schema for all months
-json_file = "db.json"
+json_file = "<path_to_calendar_json>"
 # Load the JSON data to inspect its structure and dynamically create the jq_schema
 with open(json_file, "r") as file:
     data = json.load(file)
@@ -153,13 +153,9 @@ documents = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
 split_documents = text_splitter.split_documents(documents)
 
-#for csv loader
-# loader = CSVLoader(csv_file)
-# documents = loader.load()
-# text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-# split_docs = text_splitter.split_documents(documents)
 
-#for txt files 
+
+#for txt files if you are working on the conversation dataset
 # txt_file = "<path_to_txt_data_file>"
 # loader = TextLoader(file_path=txt_file, encoding="utf-8")  # Ensure correct encoding
 # documents = loader.load()
