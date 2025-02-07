@@ -143,7 +143,7 @@ def visualize_graph(df_graph, output_image, output_image_1):
 # Main function
 def main():
     # Load JSON file
-    json_file = "db.json"
+    json_file = "<path_to_caldendar_json_file>"
 
     # Load the JSON data
     with open(json_file, "r") as file:
