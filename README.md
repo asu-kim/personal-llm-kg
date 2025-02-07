@@ -87,7 +87,7 @@ Example output:
 
 ### Step 2: Generate and Evaluate Results
 
-After obtaining the knowledge triples from the previous step, run **`main_ROUGE.py** and **`main_BLEU.py`** to compute evaluation metrics based on ROUGE and BLEU scores.
+After obtaining the knowledge triples from the previous step, run **`main_ROUGE.py`** and **`main_BLEU.py`** to compute evaluation metrics based on ROUGE and BLEU scores.
 
 **Note:** 
 - Ensure that the correct file paths for the dataset, output files, and images are provided.
