@@ -65,7 +65,8 @@ python3 knowledge_graph_calendar.py
 python3 knowledge_graph.py
 ```
 Example output:
-## Knowledge Graph Edges  
+
+**Knowledge Graph Edges**  
 1. 
 | Source              | Target                     | Edge                      |
 |---------------------|--------------------------|---------------------------|
@@ -96,11 +97,12 @@ python3 main_ROUGE.py
 python3 main_BLEU.py
 ```
 Example output file of the evaluation:
-## Evaluation Log  
+
+**Evaluation Log**  
 
 ==================================================  
 
-### **Question 1: Our Approach**  
+**Question 1: Our Approach**  
 
 **Query:**  
 _When is the “Catch-up with Friends” event scheduled?_  
@@ -122,7 +124,7 @@ The “Catch-up with Friends” event is scheduled on 2024-08-03 from 16:00 to 1
 
 --------------------------------------------------  
 
-### **Question 1: Baseline**  
+**Question 1: Baseline**  
 
 **Query:**  
 _When is the “Catch-up with Friends” event scheduled?_  
