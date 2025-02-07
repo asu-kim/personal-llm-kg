@@ -1,0 +1,59 @@
+Question: What trend does Mom say is dominating the entertainment industry?
+Answer: Streaming platforms.
+
+Question: What trend does Dad mention as making a comeback?
+Answer: Theaters with big blockbuster releases.
+
+Question: What trend does Sister highlight as growing?
+Answer: The rise of short-form videos, like TikTok.
+
+Question: Does Mom think streaming will replace theaters?
+Answer: No, she thinks people still love the theater experience for big events.
+
+Question: How are theaters adapting according to Dad?
+Answer: Theaters are adding luxury seating and better food options.
+
+Question: What does Sister think about streaming and theaters?
+Answer: She thinks both can coexist, with streaming for convenience and theaters for special events.
+
+Question: What use of AI in the entertainment industry does Mom mention?
+Answer: AI is being used to write scripts.
+
+Question: What does Dad mention about AI in the entertainment industry?
+Answer: AI is being used to create CGI characters.
+
+Question: What does Sister find cool about AI?
+Answer: AI-generated music.
+
+Question: Does Mom think AI will replace human creativity?
+Answer: No, she believes human creativity has heart and emotion.
+
+Question: What does Dad think audiences connect to in entertainment?
+Answer: Stories written by real people.
+
+Question: What entertainment format does Mom prefer?
+Answer: Binge-watching series on Netflix.
+
+Question: What entertainment format does Dad prefer?
+Answer: Big screen movies in theaters.
+
+Question: What entertainment format does Sister prefer?
+Answer: Short videos on TikTok and YouTube.
+
+Question: What compromise does Sister suggest for family movie night?
+Answer: Start with Netflix and then go to the theater later.
+
+Question: What does Dad offer to bring for the theater experience?
+Answer: Popcorn.
+
+Question: What does Alex propose for the family?
+Answer: Planning a family movie night.
+
+Question: What does Sister say about AI in entertainment?
+Answer: She says AI is a tool, not a replacement.
+
+Question: What mix of entertainment preferences does the family have?
+Answer: Mom loves Netflix, Dad prefers theaters, and Sister enjoys TikTok and YouTube.
+
+Question: How does Alex conclude the conversation?
+Answer: Alex says, “Perfect compromise. Let’s make it happen!”

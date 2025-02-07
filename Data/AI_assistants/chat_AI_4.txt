@@ -1,0 +1,59 @@
+Alex: Hey Google, can you help me set up reminders?
+
+Google Assistant: Of course, Alex! What reminder would you like to set?
+
+Alex: Remind me to call Mom at 6 PM today.
+
+Google Assistant: Got it. I’ve set a reminder to call Mom at 6 PM today.
+
+Alex: Thanks! Can you also check the weather for tomorrow?
+
+Google Assistant: Sure! Tomorrow’s forecast shows sunny skies with a high of 75°F and a low of 60°F.
+
+Alex: Perfect. What’s the traffic like on my commute to work right now?
+
+Google Assistant: Traffic looks moderate. Your usual 30-minute drive might take 35 minutes.
+
+Alex: Not bad. Can you play my workout playlist?
+
+Google Assistant: Playing your workout playlist on Spotify.
+
+Alex: Great. Also, can you add milk and eggs to my shopping list?
+
+Google Assistant: Added milk and eggs to your shopping list.
+
+Alex: Thanks. Can you tell me my next calendar event?
+
+Google Assistant: Your next event is a team meeting at 2 PM today.
+
+Alex: Cool. What’s the capital of Australia?
+
+Google Assistant: The capital of Australia is Canberra.
+
+Alex: Interesting. Can you set a timer for 15 minutes?
+
+Google Assistant: Timer set for 15 minutes. Starting now.
+
+Alex: Thanks. Can you also send a text to Max saying, “Let’s meet for coffee tomorrow at 10 AM”?
+
+Google Assistant: Sure. Sending a text to Max: “Let’s meet for coffee tomorrow at 10 AM.”
+
+Alex: Awesome. Can you find the nearest coffee shop?
+
+Google Assistant: The nearest coffee shop is Java Central, 0.5 miles away.
+
+Alex: Perfect. Can you tell me a joke?
+
+Google Assistant: Why don’t skeletons fight each other? Because they don’t have the guts!
+
+Alex: Haha, good one! Can you translate “Good morning” to French?
+
+Google Assistant: “Good morning” in French is “Bonjour.”
+
+Alex: Thanks. Can you remind me to water the plants tomorrow morning?
+
+Google Assistant: Reminder set to water the plants tomorrow at 9 AM.
+
+Alex: You’re the best!
+
+Google Assistant: Happy to help, Alex! Let me know if you need anything else.

@@ -1,0 +1,59 @@
+Question: What event is Alex planning?
+Answer: A jogging session.
+
+Question: When is the jogging session scheduled?
+Answer: Saturday morning at 7 AM.
+
+Question: Where will the jogging session take place?
+Answer: At the park trail.
+
+Question: How long will the jogging session last?
+Answer: About an hour.
+
+Question: What is the planned distance for the jog?
+Answer: 5 kilometers.
+
+Question: What time does Alex suggest for warm-ups?
+Answer: 6:50 AM.
+
+Question: What does Alex suggest bringing for hydration?
+Answer: A water bottle.
+
+Question: How will Alex track the jogging stats?
+Answer: Using an app to track time and distance.
+
+Question: Does Alex prefer jogging in pairs or as a group?
+Answer: As a group for fun and motivation.
+
+Question: What snacks will Alex bring for after the jog?
+Answer: Bananas and energy bars.
+
+Question: What will Liam bring for the session?
+Answer: Sports drinks.
+
+Question: What will Mia bring for the session?
+Answer: Protein shakes.
+
+Question: What is the plan if someone gets tired during the jog?
+Answer: Slow down or take short breaks.
+
+Question: What is the expected weather for the jogging session?
+Answer: Sunny but cool in the morning.
+
+Question: How does Liam feel about the jogging session?
+Answer: He thinks it’s a good way to start the day.
+
+Question: What time should everyone meet for warm-ups?
+Answer: 6:50 AM.
+
+Question: What does Jake suggest for the jogging session?
+Answer: Making it a regular activity.
+
+Question: How does Alex conclude the conversation?
+Answer: Alex says, “See you all at 6:50 AM for warm-ups.”
+
+Question: How does Mia feel about the jogging session?
+Answer: Mia is excited and says, “See you guys Saturday morning.”
+
+Question: What is the group’s plan if the weather changes?
+Answer: There’s no plan for bad weather as the forecast is ideal for jogging.

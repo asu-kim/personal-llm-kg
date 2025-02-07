@@ -1,0 +1,59 @@
+Question: What activity is Alex planning?
+Answer: A swimming session.
+
+Question: When is the swimming session scheduled?
+Answer: Sunday morning at 9 AM.
+
+Question: Where will the swimming session take place?
+Answer: At the community pool.
+
+Question: What does Alex suggest bringing?
+Answer: Swimsuits, towels, and goggles.
+
+Question: What will Mia bring for the session?
+Answer: Sunscreen and a beach ball.
+
+Question: What will Jake bring for the session?
+Answer: Snacks and water bottles.
+
+Question: What activity does Liam suggest during the session?
+Answer: A mini relay race.
+
+Question: What are the rules for the relay race?
+Answer: Each person swims one lap, and the time is recorded.
+
+Question: Who will keep time during the race?
+Answer: Alex will bring a stopwatch to keep time.
+
+Question: What is the group’s plan after swimming?
+Answer: To grab brunch at a nearby café.
+
+Question: What does Mia want to try at the café?
+Answer: The pancakes.
+
+Question: Does the pool require a reservation?
+Answer: No, it’s first-come, first-served.
+
+Question: What time is the group meeting at the pool?
+Answer: At 8:45 AM.
+
+Question: What does Alex suggest doing before swimming?
+Answer: Stretching by the pool to warm up.
+
+Question: How does Jake feel about the swimming plan?
+Answer: Jake says it’s going to be so much fun.
+
+Question: What does Alex say about the usual crowd at the pool in the morning?
+Answer: Alex says it’s usually not crowded.
+
+Question: What is Mia bringing for sun protection?
+Answer: Sunscreen.
+
+Question: What time does Alex suggest for meeting?
+Answer: 8:45 AM.
+
+Question: What time does the pool open?
+Answer: 9 AM.
+
+Question: How does Alex conclude the conversation?
+Answer: Alex says, “See you all at 8:45 AM Sunday!”

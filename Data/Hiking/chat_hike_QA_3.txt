@@ -1,0 +1,40 @@
+Question: Who is Alex going hiking with?
+Answer: Alex is going hiking with friends.
+Question: When is the hiking trip planned?
+Answer: The hiking trip is planned for August 10th.
+Question: What time is the hike starting?
+Answer: The hike is starting at 6 AM.
+Question: When does Alex need to leave the house?
+Answer: Alex needs to leave the house around 5:30 AM.
+Question: What did Dad comment about the start time?
+Answer: Dad said, “6 AM? That’s early!”
+Question: What gear does Alex already have ready?
+Answer: Alex has water, snacks, sunscreen, and good shoes ready.
+Question: What additional items does Sister remind Alex to bring?
+Answer: Sister reminds Alex to bring a hat and sunglasses.
+Question: What time does Alex plan to be back home?
+Answer: Alex plans to be back by noon.
+Question: Why does Alex need to be back by noon?
+Answer: Alex needs to be back for the family outing that day.
+Question: How far away is the trail?
+Answer: The trail is about an hour away.
+Question: What is the difficulty level of the trail?
+Answer: The trail has moderate difficulty.
+Question: What does Sister ask Alex to do during the hike?
+Answer: Sister asks Alex to take pictures of the views.
+Question: What does Mom offer to pack for Alex?
+Answer: Mom offers to pack Alex a quick and light breakfast.
+Question: What does Dad offer to pack for Alex?
+Answer: Dad offers to pack extra water bottles in the car.
+Question: How is Alex traveling to the hike location?
+Answer: Alex is carpooling with friends.
+Question: What time are Alex and friends meeting to carpool?
+Answer: They are meeting at the parking lot at 5:45 AM.
+Question: What safety tip does Mom give Alex?
+Answer: Mom advises Alex to drive safely and make sure his phone is fully charged.
+Question: What does Dad say about hiking?
+Answer: Dad says, “Hiking can be unpredictable. Stay safe out there.”
+Question: What advice does Sister give about navigation?
+Answer: Sister tells Alex to use maps to avoid getting lost.
+Question: What does Alex promise to do after the hike?
+Answer: Alex promises to let the family know when they start and finish the hike.

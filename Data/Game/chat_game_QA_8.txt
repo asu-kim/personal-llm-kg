@@ -1,0 +1,59 @@
+Question: What event is Alex planning?
+Answer: A soccer game.
+
+Question: When is the soccer game scheduled?
+Answer: Saturday morning at 9 AM.
+
+Question: Where will the soccer game take place?
+Answer: At the community field.
+
+Question: What does Alex ask everyone to bring?
+Answer: Cleats, jerseys, and a water bottle.
+
+Question: What gear will Alex bring?
+Answer: The soccer ball.
+
+Question: Are the goalposts already set up at the field?
+Answer: Yes, they are already set up.
+
+Question: What will Alex bring for after the game?
+Answer: Water and energy bars.
+
+Question: What will Jake bring?
+Answer: Sports drinks.
+
+Question: What will Liam bring?
+Answer: Bananas and oranges.
+
+Question: What is the plan for the game structure?
+Answer: A quick warm-up followed by a full game.
+
+Question: Will the group play casually or keep score?
+Answer: They will divide into teams and keep score.
+
+Question: What rules does Alex suggest for the game?
+Answer: Basic soccer rules.
+
+Question: What is the backup plan if it rains?
+Answer: Move to the indoor sports center nearby.
+
+Question: What time should the group meet at the field?
+Answer: At 8:45 AM.
+
+Question: Who thinks soccer games are always a blast?
+Answer: Liam.
+
+Question: How does Alex conclude the conversation?
+Answer: Alex says, “See you all at 8:45 AM this Saturday!”
+
+Question: What time does the soccer game start?
+Answer: 9 AM.
+
+Question: What does Mia suggest bringing for after the game?
+Answer: Snacks and drinks.
+
+Question: What does Liam say he will bring for post-game refreshment?
+Answer: Bananas and oranges.
+
+Question: What time does Alex suggest meeting to start on time?
+Answer: 8:45 AM.

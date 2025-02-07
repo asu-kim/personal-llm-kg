@@ -1,0 +1,59 @@
+Question: Why is Alex contacting Dr. Sunny?
+Answer: To schedule a chiropractic appointment.
+
+Question: What was the first appointment slot offered?
+Answer: Monday at 2 PM.
+
+Question: Why couldn’t Alex take the Monday slot?
+Answer: Alex has a meeting at that time.
+
+Question: What time is Alex’s appointment scheduled for?
+Answer: Thursday at 10 AM.
+
+Question: What does Dr. Sunny ask Alex to bring to the appointment?
+Answer: Recent medical records, X-rays, or reports related to back or joint issues.
+
+Question: What does Dr. Sunny recommend wearing to the appointment?
+Answer: Comfortable, loose clothing.
+
+Question: How long will the chiropractic session take?
+Answer: About 45 minutes.
+
+Question: Will Alex receive a full evaluation during the session?
+Answer: Yes, Dr. Sunny will assess posture, spine alignment, and joint movement.
+
+Question: What activities should Alex avoid before the appointment?
+Answer: Heavy lifting or strenuous exercise 24 hours before the session.
+
+Question: Can Alex discuss long-term treatment plans during the appointment?
+Answer: Yes, Dr. Sunny will create a plan based on Alex’s needs and goals.
+
+Question: Is there parking available near the clinic?
+Answer: Yes, there’s a parking lot adjacent to the building.
+
+Question: Will Alex receive a reminder for the appointment?
+Answer: Yes, a text reminder will be sent a day before.
+
+Question: How can Alex contact the clinic if needed?
+Answer: By calling or emailing the clinic.
+
+Question: How does Alex confirm the appointment?
+Answer: Alex says, “I’ll see you on Thursday at 10 AM!”
+
+Question: What is Dr. Sunny’s final message to Alex?
+Answer: Dr. Sunny says, “Looking forward to it, Alex. Take care!”
+
+Question: How will Dr. Sunny prepare for Alex’s session?
+Answer: By conducting a full evaluation and creating a treatment plan.
+
+Question: What clothing should Alex avoid wearing?
+Answer: Restrictive clothing.
+
+Question: How will Alex prepare for the chiropractic session?
+Answer: By avoiding heavy lifting and strenuous activities 24 hours before.
+
+Question: What is the purpose of the appointment?
+Answer: To address back or joint issues and create a treatment plan.
+
+Question: Where is the clinic located relative to parking?
+Answer: The clinic has parking adjacent to the building.

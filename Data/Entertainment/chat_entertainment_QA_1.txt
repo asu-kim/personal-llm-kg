@@ -1,0 +1,59 @@
+Question: What event is the group planning to watch?
+Answer: The Oscars.
+
+Question: When is the Oscars watch party scheduled?
+Answer: Next Sunday at 7 PM.
+
+Question: Where will the watch party take place?
+Answer: At Alex’s place.
+
+Question: Who suggested Alex’s place for the watch party?
+Answer: Liam.
+
+Question: What snacks did Zoe say she would bring?
+Answer: Popcorn and chips.
+
+Question: What drink does Mia prefer?
+Answer: Soda.
+
+Question: What drink does Liam request to stay awake during the speeches?
+Answer: Coffee.
+
+Question: What theme did Alex propose for the watch party?
+Answer: Dressing up as favorite movie characters from this year’s nominees.
+
+Question: Which character does Zoe plan to dress up as?
+Answer: Barbie.
+
+Question: Which character does Liam plan to dress up as?
+Answer: Ken.
+
+Question: Who will Mia dress up as?
+Answer: One of the astronauts from Interstellar.
+
+Question: Who will Alex dress up as?
+Answer: Oppenheimer.
+
+Question: What movie is Alex rooting for as Best Picture?
+Answer: Oppenheimer.
+
+Question: What movie is Mia supporting for Best Picture?
+Answer: Oppenheimer, but she won’t be mad if Barbie wins.
+
+Question: Which movie is Liam rooting for as Best Picture?
+Answer: Everything Everywhere All At Once.
+
+Question: What movie is Zoe’s favorite for Best Picture?
+Answer: Barbie, but she also agrees with Liam about Everything Everywhere All At Once.
+
+Question: What activity did Mia suggest for the party?
+Answer: A ballot competition to predict the Oscar winners.
+
+Question: What prize will the winner of the ballot competition get?
+Answer: Bragging rights and a chocolate Oscar.
+
+Question: What will Zoe prepare to set the mood before the show?
+Answer: An Oscar night playlist.
+
+Question: How did Alex conclude the conversation?
+Answer: By saying, “See you all next Sunday at 7 PM!”

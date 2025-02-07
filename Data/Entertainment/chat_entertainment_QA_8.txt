@@ -1,0 +1,59 @@
+Question: What is Alex’s favorite movie?
+Answer: Inception.
+
+Question: How many times has Alex watched Inception?
+Answer: At least 10 times.
+
+Question: What does Mia think about Inception?
+Answer: Mia thinks it’s a mind-bender.
+
+Question: What does Liam wonder about the ending of Inception?
+Answer: He wonders if it was all a dream.
+
+Question: What does Alex like about the ending of Inception?
+Answer: The ambiguity keeps you thinking.
+
+Question: What is Alex’s favorite scene in Inception?
+Answer: The hallway fight scene with the rotating gravity.
+
+Question: What does Mia say about the soundtrack during the hallway fight scene?
+Answer: Mia says the soundtrack made it even better.
+
+Question: What does Liam think about Hans Zimmer’s score for Inception?
+Answer: Liam says it’s iconic and gave him chills.
+
+Question: Which track from the soundtrack does Alex call perfection?
+Answer: The Time track.
+
+Question: Who is Alex’s favorite character in Inception?
+Answer: Cobb.
+
+Question: What does Mia say about Ariadne’s role in the movie?
+Answer: She says Ariadne was a cool architect of dreams.
+
+Question: Did Liam understand the dream levels on his first watch?
+Answer: No, Liam didn’t understand them on his first watch.
+
+Question: What did Jake do to understand the dream levels?
+Answer: He Googled a diagram afterward.
+
+Question: What does Mia say about rewatching Inception?
+Answer: Mia says you discover something new every time.
+
+Question: Why does Alex say Inception is his favorite movie?
+Answer: Because it’s visually stunning, emotionally deep, and intellectually challenging.
+
+Question: Would Alex watch a sequel to Inception?
+Answer: Yes, but only if Christopher Nolan directs it.
+
+Question: What other Nolan movies does Mia ask Alex about?
+Answer: Interstellar and The Dark Knight.
+
+Question: What does Alex say about Interstellar and The Dark Knight?
+Answer: Alex loves them but says Inception is still his favorite.
+
+Question: What does Liam call Inception at the end of the conversation?
+Answer: Liam calls it a masterpiece.
+
+Question: What does Alex suggest the group should do?
+Answer: Have a movie night and watch Inception again.

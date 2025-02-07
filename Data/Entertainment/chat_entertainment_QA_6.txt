@@ -1,0 +1,59 @@
+Question: What event is Alex suggesting the family watch together?
+Answer: The Oscars.
+
+Question: What does Mom find exciting about the Oscars?
+Answer: Seeing the red carpet looks.
+
+Question: What movies did Alex mention as being nominated?
+Answer: Oppenheimer, Barbie, Everything Everywhere All At Once, and more.
+
+Question: Which movie is Sister rooting for?
+Answer: Barbie.
+
+Question: Which movie does Mom love?
+Answer: Oppenheimer.
+
+Question: Which movie is Dad supporting?
+Answer: Everything Everywhere All At Once.
+
+Question: Who does Alex say is hosting the Oscars this year?
+Answer: Jimmy Kimmel.
+
+Question: What past Oscar moment does Sister mention?
+Answer: The La La Land and Moonlight mix-up.
+
+Question: Who does Alex think should win Best Actor?
+Answer: Cillian Murphy for Oppenheimer.
+
+Question: Who does Mom agree carried Oppenheimer?
+Answer: Cillian Murphy.
+
+Question: Who does Sister think should win Best Actress?
+Answer: Margot Robbie for Barbie.
+
+Question: Who does Dad think deserves Best Actress?
+Answer: Michelle Yeoh for Everything Everywhere All At Once.
+
+Question: What theme did Alex suggest for the Oscars night?
+Answer: Dressing up like they’re on the red carpet.
+
+Question: What will Sister wear for the themed night?
+Answer: A sparkly dress.
+
+Question: What will Dad wear for the themed night?
+Answer: A tux.
+
+Question: What activity will Alex bring for commercials?
+Answer: Oscar trivia games.
+
+Question: What will Mom make for the night?
+Answer: Fancy finger foods.
+
+Question: What will Sister contribute to the party?
+Answer: Desserts.
+
+Question: How did Alex describe their Oscars night plan?
+Answer: Alex said it’s going to be the best Oscars night ever.
+
+Question: What does Dad enjoy about Everything Everywhere All At Once?
+Answer: He finds it a unique film.
