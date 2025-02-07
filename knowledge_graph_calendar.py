@@ -1,7 +1,4 @@
 
-### based on https://www.kaggle.com/code/rahulvks/knowledge-graphs-information-extraction 
-### https://lopezyse.medium.com/knowledge-graphs-from-scratch-with-python-f3c2a05914cc 
-
 import json
 import csv
 import spacy
@@ -27,18 +24,7 @@ def load_json(filepath):
         print(f"Error decoding JSON in {filepath}.")
         return {}
 
-# Function to extract triples from the calendar data
-# def extract_triples(data):
-#     triples = []
-#     for month, sections in data.get("AlexCalendar2024", {}).items():
-#         for section, events in sections.items():
-#             for event in events:
-#                 # Creating triples as Subject, Predicate, Object
-#                 Subject = section
-#                 triples.append((Subject, "hasEvent", event.get('event', '')))
-#                 triples.append((Subject, "atTime", event.get('time', '')))
-#                 triples.append((Subject, "onDate", event.get('date', '')))
-#     return triples
+
 # Function to extract triples from the calendar data
 def extract_triples(data):
     triples = []
@@ -88,73 +74,7 @@ def build_knowledge_graph(subjects, objects, relations, output_csv):
     print(f"Knowledge graph saved to {output_csv}")
     return df_graph
 
-# Function to visualize a knowledge graph
-# def visualize_graph(df_graph, output_image, output_image_1):
-#     # Create a MultiDiGraph
-#     G = nx.from_pandas_edgelist(df_graph, "source", "target", edge_attr="edge", create_using=nx.MultiDiGraph())
 
-#     # Convert MultiDiGraph to DiGraph for edge label compatibility
-#     simplified_G = nx.DiGraph()
-#     for u, v, data in G.edges(data=True):
-#         # If there are multiple edges, concatenate their labels
-#         if simplified_G.has_edge(u, v):
-#             simplified_G[u][v]["edge"] += f", {data['edge']}"
-#         else:
-#             simplified_G.add_edge(u, v, edge=data["edge"])
-
-#     # Define layout for better aesthetics
-#     pos = nx.spring_layout(simplified_G, seed=42)
-
-#     # Define node colors
-#     node_colors = []
-#     for node in simplified_G.nodes:
-#         if "2024" in node:  # Date nodes
-#             node_colors.append("skyblue")
-#         elif ":" in node:  # Time nodes
-#             node_colors.append("orange")
-#         else:  # Event nodes
-#             node_colors.append("lightgreen")
-
-#     # Draw the graph
-#     plt.figure(figsize=(14, 10))
-#     nx.draw(
-#         simplified_G,
-#         pos,
-#         with_labels=True,
-#         node_color=node_colors,
-#         edge_cmap=plt.cm.Blues,
-#         node_size=12000,  # Increased node size
-#         font_size=14,  # Font size for node labels
-#         font_weight="bold",
-#         width=2.5,  # Increased edge thickness
-#         edge_color="gray",  # Gray edges for better contrast
-#     )
-
-#     # Draw edge labels
-#     edge_labels = nx.get_edge_attributes(simplified_G, "edge")
-#     nx.draw_networkx_edge_labels(
-#         simplified_G,
-#         pos,
-#         edge_labels=edge_labels,
-#         font_color="darkred",
-#         font_size=12,
-#         font_weight="bold",
-#         bbox=dict(facecolor="white", edgecolor="black", boxstyle="round,pad=0.2", alpha=0.7),
-#     )
-
-#     # Add legend
-#     legend_elements = [
-#         mpatches.Patch(color="skyblue", label="Date Nodes"),
-#         mpatches.Patch(color="lightgreen", label="Event Nodes"),
-#         mpatches.Patch(color="orange", label="Time Nodes"),
-#     ]
-#     plt.legend(handles=legend_elements, loc="upper left", fontsize=12, title="Node Types", title_fontsize=14)
-
-#     # Save the graph as an image
-#     plt.savefig(output_image_1, dpi=300, bbox_inches="tight", format="png")
-#     plt.savefig(output_image, dpi=300, bbox_inches="tight", format="svg")
-#     print(f"Graph visualization saved to {output_image} and {output_image_1}")
-#     plt.show()
 
 def visualize_graph(df_graph, output_image, output_image_1):
     # Create a MultiDiGraph
@@ -260,58 +180,11 @@ def main():
     objects = [t[2] for t in sampled_triples]
 
     # Build and save the knowledge graph
-    df_graph = build_knowledge_graph(subjects, objects, relations, 'knowledge_graph_3.csv')
+    df_graph = build_knowledge_graph(subjects, objects, relations, '<path_to_output in csv format>')
 
     # Visualize the knowledge graph
-    visualize_graph(df_graph, 'sample_knowledge_graph_2.svg', 'sample_knowledge_graph_2.png')
+    visualize_graph(df_graph, '<path to image in svg format>', '<path to image in png format>')
 # Run the main function
 if __name__ == "__main__":
     main()
 
-# def main():
-#     # Load JSON file
-#     json_file = "db.json"
-
-#     # Load the JSON data
-#     with open(json_file, "r") as file:
-#         data = json.load(file)
-
-#     # Extract all months dynamically
-#     months = data.get("AlexCalendar2024", {})
-
-#     # Collect data for each month
-#     all_triples = []
-#     for month, month_data in months.items():
-#         print(f"Processing month: {month}")
-#         # Extract triples for the current month
-#         month_triples = extract_triples(month_data)
-#         all_triples.extend(month_triples)
-
-#     # Manually select sampled triples
-#     sampled_triples_1 = all_triples[5:8]  # First selection
-#     sampled_triples_2 = all_triples[25:28]    # Second selection
-
-#     # Combine the selected triples into one set
-#     sampled_triples = sampled_triples_1 + sampled_triples_2
-
-#     print("Sampled triples:", sampled_triples)
-
-#     # Load SpaCy model
-#     nlp = spacy.load('en_core_web_sm')
-
-#     # Generate relation texts
-#     texts = [f"{t[0]} {t[1]} {t[2]}" for t in sampled_triples]
-#     relations = [create_relation(text, nlp) for text in tqdm(texts)]
-
-#     # Separate Subject and Object from the triples for graph construction
-#     subjects = [t[0] for t in sampled_triples]
-#     objects = [t[2] for t in sampled_triples]
-
-#     # Build and save the knowledge graph
-#     df_graph = build_knowledge_graph(subjects, objects, relations, 'knowledge_graph_combined.csv')
-
-#     # Visualize the knowledge graph
-#     visualize_graph(df_graph, 'combined_knowledge_graph.svg', 'combined_knowledge_graph.png')
-
-# if __name__ == "__main__":
-#     main()
