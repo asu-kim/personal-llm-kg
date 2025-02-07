@@ -4,70 +4,73 @@ import spacy
 import pandas as pd
 import networkx as nx
 import matplotlib.pyplot as plt
+import argparse
+
+# Set up argument parser to get file paths from the user
+parser = argparse.ArgumentParser(description="Extract knowledge graph from text.")
+parser.add_argument("--input", type=str, required=True, help="Path to the input text file")
+parser.add_argument("--output", type=str, required=True, help="Path to save the output CSV file")
+parser.add_argument("--image", type=str, required=True, help="Path to save the knowledge graph image")
+args = parser.parse_args()
 
 # Load the spaCy model
 nlp = spacy.load("en_core_web_sm")
 
-# Sample text
-file_path = "<path_to_data>"
-with open(file_path, "r") as file:
+# Read the input file
+with open(args.input, "r") as file:
     text = file.read()
 
 def extract_triplet(sent):
-    subject = ""
+    source = ""
     if ":" in sent:
-        subject = sent.split(":", 1)[0].strip()
+        source = sent.split(":", 1)[0].strip()
         sent = sent.split(":", 1)[1].strip()  
 
     doc = nlp(sent)
-    relation = ""
-    obj = ""
+    edge = ""
+    target = ""
 
-   
+    # Identify the main verb (relation)
     for token in doc:
-        # Main verb in the sentence
         if token.dep_ in {"ROOT", "VERB"}:  
-            relation = token.text
-            # descriptive context for relation
+            edge = token.text
             if token.head.text != token.text:
-                relation = f"{relation} {token.head.text}"
+                edge = f"{edge} {token.head.text}"
             break
 
-    # Extract object 
+    # Extract target (was "object")
     for chunk in doc.noun_chunks:
-        # Direct or prepositional objects
         if chunk.root.dep_ in {"dobj", "pobj", "attr", "oprd", "nsubjpass"}:  
-            obj = chunk.text
+            target = chunk.text
             break
 
-    # Fall back to named entities for objects if not found in noun chunks
-    if not obj:
+    # Fall back to named entities for target if not found in noun chunks
+    if not target:
         for ent in doc.ents:
             if ent.label_ in {"DATE", "TIME", "GPE", "ORG", "PERSON"}:  
-                obj = ent.text
+                target = ent.text
                 break
 
     # Skip meaningless triples
-    if not relation.strip() and not obj.strip():
+    if not edge.strip() and not target.strip():
         return None
 
-    return [subject.strip(), relation.strip(), obj.strip()]
+    return [source.strip(), edge.strip(), target.strip()]
 
-# Process the text into individual lines (split by newlines)
+# Process the text into individual lines
 lines = text.split("\n")
 
 # Extract entity triplets
 triplets = [extract_triplet(line) for line in lines if line.strip()]
-triplets = [t for t in triplets if t]  # Remove None values
+triplets = [t for t in triplets if t]  
 
 # Create DataFrame
-kg_df = pd.DataFrame(triplets, columns=["subject", "relation", "object"])
+kg_df = pd.DataFrame(triplets, columns=["source", "edge", "target"])
 
 # Save to CSV
-output_csv = "<path_to_output in csv format>"
-kg_df.to_csv(output_csv, index=False)
+kg_df.to_csv(args.output, index=False)
 
-print(f"Triples saved to {output_csv}")
+print(f"Triples saved to {args.output}")
 print(kg_df)
 
 # Visualize the Knowledge Graph
@@ -75,8 +78,8 @@ G = nx.MultiDiGraph()
 
 # Add edges to the graph
 for _, row in kg_df.iterrows():
-    if row["subject"] and row["relation"] and row["object"]:
-        G.add_edge(row["subject"], row["object"], key=row["relation"], label=row["relation"])
+    if row["source"] and row["edge"] and row["target"]:
+        G.add_edge(row["source"], row["target"], key=row["edge"], label=row["edge"])
 
 plt.figure(figsize=(12, 12))
 pos = nx.spring_layout(G)
@@ -97,8 +100,7 @@ edge_labels = {(u, v): data["label"] for u, v, k, data in G.edges(data=True, key
 nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="red", font_size=8)
 
 # Save the graph as an image
-graph_image = "<path_to_image in .png format>"
-plt.savefig(graph_image, format="PNG", dpi=300)
+plt.savefig(args.image, format="PNG", dpi=300)
 plt.show()
 
-print(f"Knowledge graph visualization saved as {graph_image}")
+print(f"Knowledge graph visualization saved as {args.image}")

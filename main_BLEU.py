@@ -19,8 +19,32 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 import pandas as pd
 from nltk.translate.bleu_score import sentence_bleu, SmoothingFunction
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.document_loaders import TextLoader
+import argparse
+# Argument parser setup
+parser = argparse.ArgumentParser(description="Process input, output, and image paths.")
+parser.add_argument("--csv_file", type=str, required=True, help="Path to the input CSV file")
+parser.add_argument("--json_file", type=str, help="Path to the input JSON file (optional)")
+parser.add_argument("--txt_file", type=str, help="Path to the input TXT file (optional)")
+parser.add_argument("--qa_file", type=str, required=True, help="Path to the QA file from the dataset")
+parser.add_argument("--output_file", type=str, required=True, help="Path to the output file")
+parser.add_argument("--plot_png_bleu", type=str, required=True, help="Path to save the plot (PNG format)")
+parser.add_argument("--plot_svg_bleu", type=str, required=True, help="Path to save the plot (SVG format)")
+parser.add_argument("--hf_auth", type=str, required=True, help="Hugging Face authentication token")
 
+# Parse arguments
+args = parser.parse_args()
 
+# Assign variables dynamically
+csv_file = args.csv_file
+json_file = args.json_file
+txt_file = args.txt_file
+qa_file = args.qa_file
+output_file = args.output_file
+plot_png_bleu = args.plot_png_bleu
+plot_svg_bleu = args.plot_svg_bleu
+hf_auth = args.hf_auth
 # Initialize Embedding Model id
 embed_model_id = 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
 # Device configuration
@@ -40,7 +64,6 @@ embeddings = embed_model.embed_documents(docs)
 
 # Load Llama Model
 model_id = 'meta-llama/Llama-2-7b-chat-hf'
-hf_auth = '<your_auth_key_here>'
 # Device configuration
 device = f'cuda:{cuda.current_device()}' if cuda.is_available() else 'cpu'
 
@@ -103,7 +126,7 @@ for i in range(0, len(df), 3):
 combined_df = pd.DataFrame({'text': combined_rows})
 
 # Save the combined data back to a CSV
-combined_csv_file = "<path_to_combined_csv>"
+combined_csv_file = "combined_knowledge_graph.csv"
 combined_df.to_csv(combined_csv_file, index=False)
 
 # Load and split combined data
@@ -112,54 +135,44 @@ documents = loader.load()
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
 split_docs = text_splitter.split_documents(documents)
 
-# Combine every 3 rows for conversational data
-# df = pd.read_csv(csv_file)
-# combined_rows = []
-# for i in range(0, len(df), 3):
-#     # Check if there are enough rows to form a complete set
-#     if i + 2 < len(df):
-#         combined_entry = f"{df.iloc[i]['object']} {df.iloc[i]['subject']} {df.iloc[i]['object']}; " \
-#                          f"{df.iloc[i+1]['object']} {df.iloc[i+1]['subject']} {df.iloc[i+1]['object']}; " \
-#                          f"{df.iloc[i+2]['object']} {df.iloc[i+2]['subject']} {df.iloc[i+2]['object']}"
-#         combined_rows.append(combined_entry)
+file_path = args.json_file if args.json_file else args.txt_file
 
-# # Convert combined rows to a DataFrame
-# combined_df = pd.DataFrame({'text': combined_rows})
-#for txt files if you are working on the conversation dataset
-# txt_file = "<path_to_txt_data_file>"
-# loader = TextLoader(file_path=txt_file, encoding="utf-8")  # Ensure correct encoding
-# documents = loader.load()
-# text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-# split_documents = text_splitter.split_documents(documents)
+if not file_path:
+    raise ValueError("No input file provided. Please specify a JSON or TXT file.")
 
+if file_path.endswith(".json"):
+    # Process JSON Data if working on the calendar dataset
+    with open(file_path, "r") as file:
+        data = json.load(file)
 
-# Load JSON file and dynamically generate jq_schema for all months
-json_file = "<path_to_calendar_json from the Dataset available in Data/calendar/>"
+    # Extract months dynamically
+    months = data["AlexCalendar2024"].keys()
+    categories = [
+        "MeetingWithFriends",
+        "OfficeMeetings",
+        "FamilyEvents",
+        "FestivalHolidays",
+        "Classes",
+        "DailyRoutineEvents"
+    ]
 
-#Process JSON Data
-# Load the JSON data to inspect its structure and dynamically create the jq_schema
-with open(json_file, "r") as file:
-    data = json.load(file)
-# Extract all months dynamically
-months = data["AlexCalendar2024"].keys()
-# Dynamically build jq_schema for all months and all categories
-categories = [
-    "MeetingWithFriends",
-    "OfficeMeetings",
-    "FamilyEvents",
-    "FestivalHolidays",
-    "Classes",
-    "DailyRoutineEvents"
-]
-jq_schema = ", ".join(
-    f".AlexCalendar2024.{month}.{category}[]" for month in months for category in categories
-)
+    # Generate jq_schema dynamically
+    jq_schema = ", ".join(
+        f".AlexCalendar2024.{month}.{category}[]" for month in months for category in categories
+    )
 
-# Load documents from JSON using the dynamically generated jq_schema
-loader = JSONLoader(file_path=json_file, jq_schema=jq_schema, text_content=False)
+    # Load documents from JSON
+    loader = JSONLoader(file_path=file_path, jq_schema=jq_schema, text_content=False)
+
+elif file_path.endswith(".txt"):
+    # Process TXT files if working on the conversation dataset
+    loader = TextLoader(file_path=file_path, encoding="utf-8")  # Ensure correct encoding
+
+else:
+    raise ValueError("Unsupported file type. Please provide a .json or .txt file.")
+
+# Load and split documents
 documents = loader.load()
-
-# Split documents into manageable chunks
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
 split_documents = text_splitter.split_documents(documents)
 
@@ -283,10 +296,10 @@ def evaluate_responses_combined(qa_pairs, output_file):
             bleu_scores["RAG"].append(bleu_score_rag)
     
     # Plot BLEU scores comparison
-    plot_bleu_scores(bleu_scores)
+    plot_bleu_scores(bleu_scores, args.plot_png_bleu, args.plot_svg_bleu)
     
     
-def plot_bleu_scores(bleu_scores, save_path="<output_svg_path .svg format>", save_path_1="<output_png_path .png format>"):
+def plot_bleu_scores(bleu_scores, save_path, save_path_1):
     """
     Plot bar graphs comparing BLEU scores and save the plot as an image.
 
@@ -327,11 +340,13 @@ def plot_bleu_scores(bleu_scores, save_path="<output_svg_path .svg format>", sav
 
     print(f"Plot saved as {save_path} and {save_path_1}")
 # Path to the QA file
-qa_file_path = "<path_to_qa_file from the dataset>"
-output_file = "<path_to_output_file eg output.txt>"
+file_path_1 = args.qa_file
+output_file = args.output_file
 
 # Load QA pairs from the file
-questions_and_answers = load_qa_file(qa_file_path)
+
+questions_and_answers = load_qa_file(file_path_1)
 
 # Run Evaluation
 evaluate_responses_combined(questions_and_answers, output_file)
+

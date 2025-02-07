@@ -1,21 +1,30 @@
-
 import json
 import csv
 import spacy
 import pandas as pd
-from spacy.matcher import Matcher
-from tqdm import tqdm
 import networkx as nx
 import matplotlib.pyplot as plt
 import random
 import matplotlib.patches as mpatches
+import argparse
+from spacy.matcher import Matcher
+from tqdm import tqdm
+
 # Set display options for pandas
 pd.set_option('display.max_colwidth', 200)
+
+# Argument parser to get file paths from the user
+parser = argparse.ArgumentParser(description="Extract knowledge graph from calendar JSON.")
+parser.add_argument("--input", type=str, required=True, help="Path to the input JSON file")
+parser.add_argument("--output_csv", type=str, required=True, help="Path to save the output CSV file")
+parser.add_argument("--output_svg", type=str, required=True, help="Path to save the knowledge graph in SVG format")
+parser.add_argument("--output_png", type=str, required=True, help="Path to save the knowledge graph in PNG format")
+args = parser.parse_args()
 
 # Function to load JSON data
 def load_json(filepath):
     try:
-        with open(filepath, 'r') as file:
+        with open(filepath, "r") as file:
             return json.load(file)
     except FileNotFoundError:
         print(f"File {filepath} not found.")
@@ -24,18 +33,20 @@ def load_json(filepath):
         print(f"Error decoding JSON in {filepath}.")
         return {}
 
-
 # Function to extract triples from the calendar data
 def extract_triples(data):
     triples = []
-    # for month, sections in data.get("AlexCalendar2024", {}).items():
-    for section, events in data.items():
-        for event in events:
-            # Creating triples as Subject, Predicate, Object
-            Subject = section
-            triples.append((Subject, "hasEvent", event.get('event', '')))
-            triples.append((Subject, "atTime", event.get('time', '')))
-            triples.append((Subject, "onDate", event.get('date', '')))
+    for month, sections in data.get("AlexCalendar2024", {}).items():  # Extract months
+        for section, events in sections.items():  # Extract event categories
+            for event in events:
+                # Ensure event is a dictionary before accessing keys
+                if isinstance(event, dict):  
+                    source = section  # Category as the source
+                    triples.append((source, "hasEvent", event.get('event', '')))
+                    triples.append((source, "atTime", event.get('time', '')))
+                    triples.append((source, "onDate", event.get('date', '')))
+                else:
+                    print(f"Skipping invalid event data: {event}")  # Debugging
     return triples
 
 # Function to save triples to a CSV file
@@ -43,7 +54,7 @@ def save_triples_to_csv(triples, filename):
     try:
         with open(filename, 'w', newline='') as csvfile:
             writer = csv.writer(csvfile)
-            writer.writerow(['Subject', 'Predicate', 'Object'])
+            writer.writerow(['source', 'edge', 'target'])
             writer.writerows(triples)
         print(f"Triples saved to {filename}")
     except Exception as e:
@@ -74,9 +85,8 @@ def build_knowledge_graph(subjects, objects, relations, output_csv):
     print(f"Knowledge graph saved to {output_csv}")
     return df_graph
 
-
-
-def visualize_graph(df_graph, output_image, output_image_1):
+# Function to visualize the knowledge graph
+def visualize_graph(df_graph, output_svg, output_png):
     # Create a MultiDiGraph
     G = nx.from_pandas_edgelist(df_graph, "source", "target", edge_attr="edge", create_using=nx.MultiDiGraph())
 
@@ -112,21 +122,20 @@ def visualize_graph(df_graph, output_image, output_image_1):
         node_size=3000,  # Reduced node size
         font_size=7,  # Smaller font size for labels
         font_weight="bold",
-        # width=1.5,  # Reduced edge thickness
         edge_color="black",
     )
 
     # Draw edge labels
     edge_labels = nx.get_edge_attributes(simplified_G, "edge")
     nx.draw_networkx_edge_labels(
-    simplified_G,
-    pos,
-    edge_labels=edge_labels,
-    font_color="darkred",
-    font_size=7,  # Increase font size slightly
-    font_weight="bold",
-    bbox=dict(facecolor="white", edgecolor="none", alpha=1),  # Simplified bounding box
-)
+        simplified_G,
+        pos,
+        edge_labels=edge_labels,
+        font_color="darkred",
+        font_size=7,
+        font_weight="bold",
+        bbox=dict(facecolor="white", edgecolor="none", alpha=1),
+    )
 
     # Simplify legend
     legend_elements = [
@@ -137,54 +146,46 @@ def visualize_graph(df_graph, output_image, output_image_1):
     plt.legend(handles=legend_elements, loc="best", fontsize=10, title="Node Types", title_fontsize=12)
 
     # Save the graph as an image
-    plt.savefig(output_image_1, dpi=300,  format="png")
-    plt.savefig(output_image, dpi=300,  format="svg")
-    plt.show()    
-# Main function
+    plt.savefig(output_svg, dpi=300, format="svg")
+    plt.savefig(output_png, dpi=300, format="png")
+    plt.show()
+
+    print(f"Graph saved as {output_svg} and {output_png}")
+
 def main():
-    # Load JSON file
-    json_file = "<path_to_caldendar_json_file>"
+    # Load JSON data
+    data = load_json(args.input)
 
-    # Load the JSON data
-    with open(json_file, "r") as file:
-        data = json.load(file)
+    # Extract triples
+    all_triples = extract_triples(data)
 
-    # Extract all months dynamically
-    months = data.get("AlexCalendar2024", {})
+    if not all_triples:  # Check if no valid triples were extracted
+        print("❌ No valid triples found. Check the input JSON format.")
+        return
 
-    # Collect data for each month
-    all_triples = []
-    for month, month_data in months.items():
-        print(f"Processing month: {month}")
-        # Extract triples for the current month
-        month_triples = extract_triples(month_data)
-        all_triples.extend(month_triples)
-
-    # If there are more than 10 triples, randomly sample 8
-    # if len(all_triples) > 10:
-    #     sampled_triples = random.sample(all_triples, 4)
-    # else:
-        sampled_triples = all_triples
-
-    print("Sampled triples:", sampled_triples)
+    print("Extracted Triples:", all_triples)
 
     # Load SpaCy model
     nlp = spacy.load('en_core_web_sm')
 
     # Generate relation texts
-    texts = [f"{t[0]} {t[1]} {t[2]}" for t in sampled_triples]
+    texts = [f"{t[0]} {t[1]} {t[2]}" for t in all_triples]
     relations = [create_relation(text, nlp) for text in tqdm(texts)]
 
-    # Separate Subject and Object from the triples for graph construction
-    subjects = [t[0] for t in sampled_triples]
-    objects = [t[2] for t in sampled_triples]
+    # Separate Source and Target from the triples for graph construction
+    sources = [t[0] for t in all_triples]
+    targets = [t[2] for t in all_triples]
 
     # Build and save the knowledge graph
-    df_graph = build_knowledge_graph(subjects, objects, relations, '<path_to_output in csv format>')
+    df_graph = build_knowledge_graph(sources, targets, relations, args.output_csv)
+
+    if df_graph.empty:
+        print("❌ Empty graph. No valid relationships found.")
+        return
 
     # Visualize the knowledge graph
-    visualize_graph(df_graph, '<path to image in svg format>', '<path to image in png format>')
+    visualize_graph(df_graph, args.output_svg, args.output_png)
+
 # Run the main function
 if __name__ == "__main__":
     main()
-

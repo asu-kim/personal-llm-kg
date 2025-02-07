@@ -22,7 +22,38 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import psutil
 import os
+import json
+import argparse
 
+
+# Argument parser setup
+parser = argparse.ArgumentParser(description="Process input, output, and image paths.")
+parser.add_argument("--csv_file", type=str, required=True, help="Path to the input CSV file")
+parser.add_argument("--json_file", type=str, help="Path to the input JSON file (optional)")
+parser.add_argument("--txt_file", type=str, help="Path to the input TXT file (optional)")
+parser.add_argument("--qa_file", type=str, required=True, help="Path to the QA file from the dataset")
+parser.add_argument("--output_file", type=str, required=True, help="Path to the output file")
+parser.add_argument("--plot_png_rouge", type=str, required=True, help="Path to save the plot (PNG format)")
+parser.add_argument("--plot_svg_rouge", type=str, required=True, help="Path to save the plot (SVG format)")
+parser.add_argument("--plot_png_execution_time", type=str, required=True, help="Path to save the plot (PNG format)")
+parser.add_argument("--plot_svg_execution_time", type=str, required=True, help="Path to save the plot (SVG format)")
+parser.add_argument("--hf_auth", type=str, required=True, help="Hugging Face authentication token")
+
+
+# Parse arguments
+args = parser.parse_args()
+
+# Assign variables dynamically
+csv_file = args.csv_file
+json_file = args.json_file
+txt_file = args.txt_file
+qa_file = args.qa_file
+output_file = args.output_file
+plot_png_rouge = args.plot_png_rouge
+plot_svg_rouge = args.plot_svg_rouge
+plot_png_execution_time = args.plot_png_execution_time
+plot_svg_execution_time = args.plot_svg_execution_time
+hf_auth = args.hf_auth
 # Initialize Embedding Model id
 embed_model_id = 'sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2'
 # Device configuration
@@ -42,7 +73,6 @@ embeddings = embed_model.embed_documents(docs)
 
 # Load Llama Model
 model_id = 'meta-llama/Llama-2-13b-chat-hf'
-hf_auth = '<your_auth_key_here>'
 device = f'cuda:{cuda.current_device()}' if cuda.is_available() else 'cpu'
 
 # set quantization configuration to load large model with less GPU memory
@@ -82,23 +112,7 @@ generate_text = transformers.pipeline(
     repetition_penalty=1.1  
 )
 
-# # Load CSV file of the knowledge graph generated
-csv_file = "<path_to_csv_file>"
 
-# Combine every 3 rows for conversational data
-# df = pd.read_csv(csv_file)
-# combined_rows = []
-# for i in range(0, len(df), 3):
-#     # Check if there are enough rows to form a complete set
-#     if i + 2 < len(df):
-#         combined_entry = f"{df.iloc[i]['object']} {df.iloc[i]['subject']} {df.iloc[i]['object']}; " \
-#                          f"{df.iloc[i+1]['object']} {df.iloc[i+1]['subject']} {df.iloc[i+1]['object']}; " \
-#                          f"{df.iloc[i+2]['object']} {df.iloc[i+2]['subject']} {df.iloc[i+2]['object']}"
-#         combined_rows.append(combined_entry)
-
-# # Convert combined rows to a DataFrame
-# combined_df = pd.DataFrame({'text': combined_rows})
-# Load CSV
 df = pd.read_csv(csv_file)
 
 # List to store combined rows
@@ -126,44 +140,49 @@ text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=10
 split_docs = text_splitter.split_documents(documents)
 
 
-#Process JSON Data if you are working on the calendar dataset
-# Load JSON file and dynamically generate jq_schema for all months
-json_file = "<path_to_calendar_json>"
-# Load the JSON data to inspect its structure and dynamically create the jq_schema
-with open(json_file, "r") as file:
-    data = json.load(file)
-# Extract all months dynamically
-months = data["AlexCalendar2024"].keys()
-# Dynamically build jq_schema for all months and all categories
-categories = [
-    "MeetingWithFriends",
-    "OfficeMeetings",
-    "FamilyEvents",
-    "FestivalHolidays",
-    "Classes",
-    "DailyRoutineEvents"
-]
-jq_schema = ", ".join(
-    f".AlexCalendar2024.{month}.{category}[]" for month in months for category in categories
-)
-# Load documents from JSON using the dynamically generated jq_schema
-loader = JSONLoader(file_path=json_file, jq_schema=jq_schema, text_content=False)
+
+# Determine the file type dynamically
+# # Use the parsed argument instead of a hardcoded file path
+file_path = args.json_file if args.json_file else args.txt_file
+
+if not file_path:
+    raise ValueError("No input file provided. Please specify a JSON or TXT file.")
+
+if file_path.endswith(".json"):
+    # Process JSON Data if working on the calendar dataset
+    with open(file_path, "r") as file:
+        data = json.load(file)
+
+    # Extract months dynamically
+    months = data["AlexCalendar2024"].keys()
+    categories = [
+        "MeetingWithFriends",
+        "OfficeMeetings",
+        "FamilyEvents",
+        "FestivalHolidays",
+        "Classes",
+        "DailyRoutineEvents"
+    ]
+
+    # Generate jq_schema dynamically
+    jq_schema = ", ".join(
+        f".AlexCalendar2024.{month}.{category}[]" for month in months for category in categories
+    )
+
+    # Load documents from JSON
+    loader = JSONLoader(file_path=file_path, jq_schema=jq_schema, text_content=False)
+
+elif file_path.endswith(".txt"):
+    # Process TXT files if working on the conversation dataset
+    loader = TextLoader(file_path=file_path, encoding="utf-8")  # Ensure correct encoding
+
+else:
+    raise ValueError("Unsupported file type. Please provide a .json or .txt file.")
+
+# Load and split documents
 documents = loader.load()
-# Split documents into manageable chunks
 text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
 split_documents = text_splitter.split_documents(documents)
-
-
-
-#for txt files if you are working on the conversation dataset
-# txt_file = "<path_to_txt_data_file>"
-# loader = TextLoader(file_path=txt_file, encoding="utf-8")  # Ensure correct encoding
-# documents = loader.load()
-# text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-# split_documents = text_splitter.split_documents(documents)
-
-
-
 print(f"Number of documents from CSV: {len(split_docs)}")
 print(f"Number of documents from JSON: {len(split_documents)}")
 
@@ -244,7 +263,7 @@ def load_questions_answers_from_file(file_path):
             questions_and_answers.append({"query": question, "golden_answer": answer})
     
     return questions_and_answers
-def plot_rouge_scores(rouge_1, rouge_2, rouge_l, save_path="<output_png_path .png format>", save_path_1="<output_svg_path .svg format>"):
+def plot_rouge_scores(rouge_1, rouge_2, rouge_l, save_png_path, save_svg_path):
     """
     Plot bar graphs comparing ROUGE-1, ROUGE-2, and ROUGE-L scores and save the plot as an image.
 
@@ -296,20 +315,21 @@ def plot_rouge_scores(rouge_1, rouge_2, rouge_l, save_path="<output_png_path .pn
             color='orange'
         )
     # Save the plot as an image
-    plt.savefig(save_path, format='png', dpi=300)
-    plt.savefig(save_path_1, format='svg', dpi=300)
+    plt.savefig(save_png_path, format='png', dpi=300)
+    plt.savefig(save_svg_path, format='svg', dpi=300)
     plt.close()
 
-    print(f"Plot saved as {save_path}")
+    print(f"Plot saved as {save_png_path}")
 
-def plot_execution_times(avg_time_personalized, avg_time_rag, save_path="<output_png_path .png format>", save_path_1="<output_svg_path .svg format>"):
+def plot_execution_times(avg_time_personalized, avg_time_rag, save_path_png, save_path_svg):
     """
     Plot bar graphs comparing execution times and save the plot as an image.
 
     Parameters:
     - avg_time_personalized: Average execution time for the personalized assistant.
     - avg_time_rag: Average execution time for the RAG assistant.
-    - save_path: Path to save the generated plot image.
+    - save_path_png: Path to save the generated plot image in PNG format.
+    - save_path_svg: Path to save the generated plot image in SVG format.
     """
     labels = ['Our Approach', 'Baseline']
     times = [avg_time_personalized, avg_time_rag]
@@ -317,28 +337,15 @@ def plot_execution_times(avg_time_personalized, avg_time_rag, save_path="<output
     plt.figure(figsize=(5, 5))
     plt.bar(labels, times, color=['blue', 'orange'])
     plt.ylabel("Execution Time (seconds)")
-    # plt.title("Average Execution Time Comparison")
-    plt.savefig(save_path, format='png', dpi=300)
-    plt.savefig(save_path_1, format='svg', dpi=300)
+    
+    # Save the plot as PNG and SVG
+    plt.savefig(save_path_png, format='png', dpi=300)
+    plt.savefig(save_path_svg, format='svg', dpi=300)
     plt.close()
 
-    print(f"Execution time plot saved as {save_path}")
+    print(f"Execution time plot saved as {save_path_png} and {save_path_svg}")
 
-def plot_memory_usage(avg_memory_personalized, avg_memory_rag, save_path="<output_png_path .png format>"):
-    """
-    Plot bar graphs comparing memory usage and save the plot as an image.
-    """
-    labels = ['Our Approach', 'Baseline']
-    memory = [avg_memory_personalized, avg_memory_rag]
 
-    plt.figure(figsize=(5, 5))
-    plt.bar(labels, memory, color=['blue', 'orange'])
-    plt.ylabel("Memory Usage (MB)")
-    # plt.title("Average Memory Usage Comparison")
-    plt.savefig(save_path, format='png', dpi=300)
-    plt.close()
-
-    print(f"Memory usage plot saved as {save_path}")
 
 def evaluate_responses_combined(qa_pairs, output_file):
     """
@@ -350,7 +357,6 @@ def evaluate_responses_combined(qa_pairs, output_file):
     rouge_2_scores = {"Personalized": [], "RAG": []}
     rouge_l_scores = {"Personalized": [], "RAG": []}
     execution_times = {"Personalized": [], "RAG": []}
-    memory_usages = {"Personalized": [], "RAG": []}
 
     process = psutil.Process(os.getpid())  
 
@@ -364,17 +370,12 @@ def evaluate_responses_combined(qa_pairs, output_file):
 
             # response evaluation
           
-            mem_before_personalized = process.memory_info().rss / 10**6
             start_time_personalized = time.time() 
             generated_response = generate_response(query)
             end_time_personalized = time.time()
-            mem_after_personalized = process.memory_info().rss / 10**6  
-             
             
             personalized_execution_time = end_time_personalized - start_time_personalized
-            personalized_memory_usage = mem_after_personalized - mem_before_personalized
             execution_times["Personalized"].append(personalized_execution_time)
-            memory_usages["Personalized"].append(personalized_memory_usage)
             rouge_scores = compute_rouge_score(generated_response, golden_answer)
             
             # Log results 
@@ -383,7 +384,7 @@ def evaluate_responses_combined(qa_pairs, output_file):
             file.write(f"Generated Response: {generated_response}\n\n")
             file.write(f"Golden Answer: {golden_answer}\n\n")
             file.write(f"Execution Time: {personalized_execution_time:.2f} seconds\n")
-            file.write(f"Memory Usage: {personalized_memory_usage:.2f} MB\n\n")
+
             
             for rouge_type, score in rouge_scores.items():
                 file.write(f"  {rouge_type}: Precision={score.precision:.4f}, Recall={score.recall:.4f}, F1={score.fmeasure:.4f}\n")
@@ -396,15 +397,11 @@ def evaluate_responses_combined(qa_pairs, output_file):
 
             # RAG response evaluation
             start_time_rag = time.time()  
-            mem_before_rag = process.memory_info().rss / 10**6  
             generated_response_rag = generate_response_rag(query)
-            mem_after_rag = process.memory_info().rss / 10**6  
             end_time_rag = time.time()  
             
-            rag_execution_time = end_time_rag - start_time_rag
-            rag_memory_usage = mem_after_rag - mem_before_rag
+            rag_execution_time = end_time_rag - start_time_rag          
             execution_times["RAG"].append(rag_execution_time)
-            memory_usages["RAG"].append(rag_memory_usage)
             rouge_scores_rag = compute_rouge_score(generated_response_rag, golden_answer)
             
             # Log results 
@@ -413,7 +410,6 @@ def evaluate_responses_combined(qa_pairs, output_file):
             file.write(f"Generated Response: {generated_response_rag}\n\n")
             file.write(f"Golden Answer: {golden_answer}\n\n")
             file.write(f"Execution Time: {rag_execution_time:.2f} seconds\n")
-            file.write(f"Memory Usage: {rag_memory_usage:.2f} MB\n\n")
             
             for rouge_type, score in rouge_scores_rag.items():
                 file.write(f"  {rouge_type}: Precision={score.precision:.4f}, Recall={score.recall:.4f}, F1={score.fmeasure:.4f}\n")
@@ -427,24 +423,21 @@ def evaluate_responses_combined(qa_pairs, output_file):
     # Calculate average execution times and memory usage
     avg_time_personalized = sum(execution_times["Personalized"]) / len(execution_times["Personalized"])
     avg_time_rag = sum(execution_times["RAG"]) / len(execution_times["RAG"])
-    # avg_memory_personalized = sum(memory_usages["Personalized"]) / len(memory_usages["Personalized"])
-    # avg_memory_rag = sum(memory_usages["RAG"]) / len(memory_usages["RAG"])
+
 
     # Plot ROUGE scores comparison
-    plot_rouge_scores(rouge_1_scores, rouge_2_scores, rouge_l_scores)
+    plot_rouge_scores(rouge_1_scores, rouge_2_scores, rouge_l_scores, args.plot_png_rouge, args.plot_svg_rouge)
 
     # Plot Execution Time Comparison
-    plot_execution_times(avg_time_personalized, avg_time_rag)
+    plot_execution_times(avg_time_personalized, avg_time_rag, args.plot_png_execution_time, args.plot_svg_execution_time)
 
-    # Plot Memory Usage Comparison
-    #plot_memory_usage(avg_memory_personalized, avg_memory_rag)
 
 # # Path to the QA file
-file_path = "<path_to_qa_file from the dataset>"
-output_file = "<path_to_output_file eg output.txt>"
+file_path_1 = args.qa_file
+output_file = args.output_file
 
 # Load QA pairs from the file
-questions_and_answers = load_questions_answers_from_file(file_path)
+questions_and_answers = load_questions_answers_from_file(file_path_1)
 
 # Run Evaluation
 evaluate_responses_combined(questions_and_answers, output_file)
