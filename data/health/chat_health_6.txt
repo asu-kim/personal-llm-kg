@@ -1,0 +1,51 @@
+Alex: Hi Dr. Hanni, I’d like to schedule a blood test. Are there any slots available next week?
+
+Dr. Hanni: Hi Alex! Let me check. How about Wednesday at 9:30 AM?
+
+Alex: I have a team meeting at that time. Is there anything available in the afternoon?
+
+Dr. Hanni: Yes, I have an opening at 3 PM on Wednesday. Does that work?
+
+Alex: That works perfectly. What should I prepare for the test?
+
+Dr. Hanni: Please fast for 8-12 hours before the test and stay hydrated.
+
+Alex: Got it. Should I bring anything with me?
+
+Dr. Hanni: Bring your ID, insurance card, and any previous lab reports if applicable.
+
+Alex: Will the results be available the same day?
+
+Dr. Hanni: Most results will be ready in 1-2 days, but I’ll notify you once they’re in.
+
+Alex: Will you email or call with the results?
+
+Dr. Hanni: We can email them, or you can pick them up at the clinic. Let me know your preference.
+
+Alex: Email works for me. Is parking available at the clinic?
+
+Dr. Hanni: Yes, there’s a parking lot adjacent to the clinic.
+
+Alex: Great. Should I expect any specific tests during this session?
+
+Dr. Hanni: It will include a standard panel unless you request additional tests.
+
+Alex: Can we discuss additional tests during the appointment?
+
+Dr. Hanni: Absolutely. We can review your concerns and adjust accordingly.
+
+Alex: How long will the appointment take?
+
+Dr. Hanni: The blood draw takes about 10-15 minutes, but allow 30 minutes for the entire visit.
+
+Alex: Will I need to schedule a follow-up?
+
+Dr. Hanni: If anything requires further discussion, we can schedule a follow-up after reviewing your results.
+
+Alex: Perfect. Will I get a reminder for the appointment?
+
+Dr. Hanni: Yes, we’ll send a text reminder a day before.
+
+Alex: Thanks, Dr. Hanni. I’ll see you on Wednesday at 3 PM!
+
+Dr. Hanni: Looking forward to it, Alex. Take care!

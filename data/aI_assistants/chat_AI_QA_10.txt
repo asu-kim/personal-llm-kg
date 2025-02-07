@@ -1,0 +1,56 @@
+Question: What issue did Alex have with their mobile bill?
+Answer: Alex’s bill was higher than usual this month.
+
+Question: What is Alex’s account number?
+Answer: 56789MOB123.
+
+Question: Why was Alex’s bill higher this month?
+Answer: Alex exceeded their data limit by 5GB, incurring $25 in overage charges.
+
+Question: How can Alex avoid overage charges in the future?
+Answer: Alex can upgrade to a higher data plan.
+
+Question: What data plans were offered to Alex?
+Answer: 20GB for $10 more per month or unlimited data for $20 more per month.
+
+Question: Which data plan did Alex choose?
+Answer: Alex chose the unlimited data plan.
+
+Question: What is the new cost of Alex’s plan after upgrading to unlimited data?
+Answer: $70 per month.
+
+Question: Did Alex set up autopay for their bills?
+Answer: Yes, autopay was activated for Alex’s bills.
+
+Question: When is Alex’s next bill due?
+Answer: December 10th.
+
+Question: Did Alex request a breakdown of this month’s bill?
+Answer: Yes, the assistant emailed Alex a detailed breakdown.
+
+Question: Does Alex’s plan include international calling?
+Answer: No, but international calling was added for $5 per month.
+
+Question: How can Alex view their bill history?
+Answer: Alex can view bill history in the account portal under the “Billing” section.
+
+Question: What is the late payment policy for Alex’s mobile bill?
+Answer: Payments made more than 5 days after the due date will incur a $10 late fee.
+
+Question: How much were the overage charges for exceeding the data limit?
+Answer: $25 for exceeding the data limit by 5GB.
+
+Question: How much extra did Alex agree to pay for unlimited data?
+Answer: Alex agreed to pay $20 more per month for unlimited data.
+
+Question: How much does international calling cost per month?
+Answer: $5 per month.
+
+Question: Did Alex thank the assistant for their help?
+Answer: Yes, Alex thanked the assistant at the end of the conversation.
+
+Question: What section of the account portal can Alex use to view bill history?
+Answer: The “Billing” section.
+
+Question: How did the assistant conclude the conversation?
+Answer: The assistant said, “You’re welcome, Alex! Let me know if you need anything else.”

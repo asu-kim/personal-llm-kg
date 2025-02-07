@@ -1,0 +1,55 @@
+Alex: Hi, I need help with my mobile bill.
+
+AI Assistant: Sure, Alex! What do you need help with?
+
+Alex: My bill seems higher than usual this month. Can you explain why?
+
+AI Assistant: Let me check. Could you provide your account number?
+
+Alex: It’s 56789MOB123.
+
+AI Assistant: Thanks. It looks like you exceeded your data limit by 5GB, which added $25 in overage charges.
+
+Alex: That makes sense. Is there a way to avoid overage charges in the future?
+
+AI Assistant: Yes, you can upgrade to a higher data plan. Would you like me to check available plans?
+
+Alex: Yes, please.
+
+AI Assistant: You can upgrade to 20GB for an additional $10 per month or unlimited data for $20 more per month.
+
+Alex: Let’s go with the unlimited data plan.
+
+AI Assistant: Done! Your plan is now updated to unlimited data for $70 per month.
+
+Alex: Great. Can I set up autopay for my bills?
+
+AI Assistant: Yes, I’ve activated autopay. Your bills will now be automatically deducted on the due date.
+
+Alex: Perfect. When is my next bill due?
+
+AI Assistant: Your next bill is due on December 10th.
+
+Alex: Can you send me a breakdown of this month’s bill?
+
+AI Assistant: Sure, I’ve emailed you the detailed bill.
+
+Alex: Thanks. Does my plan include international calling?
+
+AI Assistant: No, international calling isn’t included, but you can add it for $5 per month.
+
+Alex: Add that to my plan, please.
+
+AI Assistant: Done! International calling is now added to your plan.
+
+Alex: Awesome. Can I view my bill history online?
+
+AI Assistant: Yes, you can view your bill history in your account portal under the “Billing” section.
+
+Alex: Thanks. What’s the late payment policy?
+
+AI Assistant: Payments made more than 5 days after the due date will incur a $10 late fee.
+
+Alex: Good to know. Thanks for all your help!
+
+AI Assistant: You’re welcome, Alex! Let me know if you need anything else.

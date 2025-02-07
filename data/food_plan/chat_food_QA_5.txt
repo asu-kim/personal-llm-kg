@@ -1,0 +1,59 @@
+Question: What event is Alex planning?
+Answer: A Christmas lunch with family.
+
+Question: When is the Christmas lunch scheduled?
+Answer: Christmas Day, December 25th, at 1 PM.
+
+Question: Where will the lunch take place?
+Answer: At Alex’s home.
+
+Question: What type of meal does Alex suggest?
+Answer: A traditional Christmas meal with turkey, ham, mashed potatoes, and other classics.
+
+Question: What dish will Mom prepare?
+Answer: Turkey and gravy.
+
+Question: What will Alex prepare?
+Answer: Ham and mashed potatoes.
+
+Question: What dish will Dad make?
+Answer: Stuffing and cranberry sauce.
+
+Question: What will Sister contribute?
+Answer: Christmas cookies and a yule log cake.
+
+Question: Who will handle the dining table decorations?
+Answer: Mom will decorate the dining table with a Christmas tablecloth and centerpieces.
+
+Question: Who will check if extra decorations are needed?
+Answer: Alex will check and let the family know.
+
+Question: Will Uncle John and Aunt Mary be invited?
+Answer: Yes, Alex will call to invite them.
+
+Question: What should Alex ask Uncle John and Aunt Mary?
+Answer: If they have any special dish requests.
+
+Question: What activities does Alex suggest for after lunch?
+Answer: Opening presents and playing holiday games.
+
+Question: What does Sister suggest for ambiance during lunch?
+Answer: Playing Christmas music.
+
+Question: Who will create the Christmas music playlist?
+Answer: Alex will make the playlist.
+
+Question: How does Mom feel about the lunch?
+Answer: She is excited and thinks it will be festive.
+
+Question: What does Dad thank Alex for?
+Answer: Organizing the Christmas lunch.
+
+Question: What does Alex say about the lunch event?
+Answer: Alex says, “Let’s make it a Christmas to remember.”
+
+Question: What time will the family meet for lunch?
+Answer: 1 PM on Christmas Day.
+
+Question: How will the family plan for any extra decorations?
+Answer: Alex will check what they have and inform the family if anything is needed.

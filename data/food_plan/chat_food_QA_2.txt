@@ -1,0 +1,59 @@
+Question: What event is Alex planning?
+Answer: A dinner with friends.
+
+Question: When is the dinner scheduled?
+Answer: Saturday evening at 7 PM.
+
+Question: Where does Alex suggest going for dinner?
+Answer: The new Italian place downtown.
+
+Question: What time does Alex suggest meeting?
+Answer: 7 PM.
+
+Question: Who will make the reservation?
+Answer: Alex will call and book a table.
+
+Question: Does the restaurant have vegetarian options?
+Answer: Yes, they have a good variety of vegetarian dishes.
+
+Question: What is the dress code for the dinner?
+Answer: Semi-casual.
+
+Question: What time and where will the group meet for carpooling?
+Answer: At Alex’s place at 6:30 PM.
+
+Question: Is there parking available at the restaurant?
+Answer: Yes, the restaurant offers free parking.
+
+Question: What dessert options are being considered?
+Answer: Desserts at the restaurant or gelato at a nearby ice cream parlor.
+
+Question: What is the price range at the restaurant?
+Answer: About $20-$30 per person.
+
+Question: Should anyone bring anything to the dinner?
+Answer: No, just themselves and an appetite.
+
+Question: Who thanks Alex for organizing the dinner?
+Answer: Mia.
+
+Question: What does Jake ask about the restaurant?
+Answer: He asks about the parking situation.
+
+Question: What time will everyone meet for carpooling?
+Answer: 6:30 PM at Alex’s place.
+
+Question: What type of cuisine is the restaurant offering?
+Answer: Italian.
+
+Question: What does Alex say about the dress code?
+Answer: It’s semi-casual.
+
+Question: What time will everyone meet at Alex’s place?
+Answer: 6:30 PM.
+
+Question: What does Alex say about the dinner’s atmosphere?
+Answer: He’s looking forward to catching up with everyone.
+
+Question: Who is organizing the dinner plans?
+Answer: Alex.

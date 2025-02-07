@@ -1,0 +1,59 @@
+Question: What activity is Alex planning?
+Answer: A yoga session.
+
+Question: When is the yoga session scheduled?
+Answer: Sunday morning at 7 AM.
+
+Question: Where will the yoga session take place?
+Answer: In the living room.
+
+Question: How many yoga mats does Alex have?
+Answer: Three mats.
+
+Question: Who will bring an additional yoga mat?
+Answer: Sister.
+
+Question: Will the session be guided or follow a video?
+Answer: The family will follow a video.
+
+Question: What type of yoga routine did Alex find?
+Answer: A beginner-friendly routine from YouTube.
+
+Question: How long will the yoga session last?
+Answer: About 30 minutes.
+
+Question: What does Alex suggest bringing for hydration?
+Answer: Water bottles for the session.
+
+Question: What will the family have after the yoga session?
+Answer: Green tea, prepared by Mom.
+
+Question: What theme does Alex suggest for the session?
+Answer: Relaxation.
+
+Question: What ambiance does Sister suggest setting up?
+Answer: Candles and calming music.
+
+Question: What will Mom add to make the session relaxing?
+Answer: Lavender essential oil for diffusion.
+
+Question: What activity will follow the yoga session?
+Answer: A 5-minute family meditation.
+
+Question: Does Sister suggest making yoga a routine?
+Answer: Yes, she suggests making it a weekly routine.
+
+Question: How does Mom feel about the session?
+Answer: She is excited and mentions it’s been a while since the family did yoga together.
+
+Question: What does Dad say about the session?
+Answer: He says it’s a refreshing way to start the day.
+
+Question: What time should everyone be ready for the session?
+Answer: 7 AM.
+
+Question: What does Alex conclude about the session?
+Answer: Alex says, “Looking forward to it. Let’s make it a great session!”
+
+Question: What will the yoga routine include besides stretches?
+Answer: Light meditation.

@@ -1,0 +1,59 @@
+Question: What does Alex say the pitch deck will highlight?
+Answer: The pitch deck highlights the problem, solution, market size, and revenue model.
+
+Question: What did Sarah suggest adding to the pitch deck?
+Answer: Customer personas and potential use cases.
+
+Question: What numbers or milestones does Alex plan to share?
+Answer: Prototype progress and early user feedback.
+
+Question: Who will the team target first, angel investors or venture capitalists?
+Answer: Angel investors for the initial round.
+
+Question: How much funding is the team seeking?
+Answer: $100,000.
+
+Question: What are the funding needs for?
+Answer: Product development, marketing, and operational costs.
+
+Question: What platforms will the team use to connect with investors?
+Answer: Networking at events, LinkedIn outreach, and AngelList.
+
+Question: What document did Emily suggest creating for investor outreach?
+Answer: A one-pager summarizing the business.
+
+Question: What did Alex outline to address potential investor concerns?
+Answer: Potential risks and mitigation strategies.
+
+Question: Will the team rehearse their pitch before meeting investors?
+Answer: Yes, they will schedule a rehearsal session.
+
+Question: What is the ideal investor profile according to Alex?
+Answer: Someone who understands tech startups and is open to mentorship.
+
+Question: Why does Sarah suggest highlighting the team’s experience?
+Answer: To build trust with investors.
+
+Question: How much equity is the team offering in exchange for funding?
+Answer: 10-15% depending on the investor’s contribution.
+
+Question: Should potential ROI for investors be included in the pitch?
+Answer: Yes, with projections over the next 3-5 years.
+
+Question: How will the team handle follow-ups after investor meetings?
+Answer: By sending personalized thank-you notes and answering additional questions.
+
+Question: What is the purpose of the rehearsal session?
+Answer: To practice the pitch before meeting investors.
+
+Question: What does Alex plan to add to show the real-world impact of the solution?
+Answer: Customer personas and potential use cases.
+
+Question: What did Jake suggest about investor questions?
+Answer: To be prepared for tough questions about risks and challenges.
+
+Question: What did Alex suggest for networking with investors?
+Answer: Attending events, LinkedIn outreach, and using AngelList.
+
+Question: How did Alex conclude the conversation?
+Answer: Alex thanked everyone for their input and expressed confidence in the plan.

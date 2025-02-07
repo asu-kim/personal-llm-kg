@@ -1,0 +1,10 @@
+Question: When is the game night scheduled?
+Answer: The game night is scheduled on 2024-08-17.
+Question: What time will Zoe arrive for the game night?
+Answer: Zoe will arrive at 20:00 on 2024-08-17.
+Question: When is the movie night planned?
+Answer: The movie night is planned for 2024-08-24 during dinner time.
+Question: What event is scheduled for August 31st, 2024?
+Answer: The event scheduled for 2024-08-31 is a beach day, planned for early morning.
+Question: When and where is the hiking trip happening?
+Answer: The hiking trip is happening on 2024-09-10, with the meeting point at the trailhead by 6:00 AM.
