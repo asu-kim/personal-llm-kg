@@ -22,6 +22,23 @@ pip install sentence_transformers==2.2.2
 pip install torch==2.0.1
 pip install torchvision==0.15.2
 ```
+For spacy model: 
+```
+pip install spacy
+pip install requests
+pip install idna
+pip install click
+pip install jinja2
+pip install pandas
+pip install pytz
+pip install six
+pip install matplotlib
+pip install pillow
+```
+If you are using a conda environment:
+```
+conda install -c conda-forge spacy requests idna click jinja2 pandas pytz six matplotlib pillow
+```
 ## System Requirements  
 
 To ensure optimal performance, the following hardware and software requirements are utilized. 
