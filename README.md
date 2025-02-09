@@ -1,13 +1,14 @@
 # personal-llm-kg
-Personalization of LLM using Knowledge Graphs
+Personalization of LLM using Knowledge Graphs. 
 This is a repository containing scripts for processing the **Conversation Calendar** dataset [conversation-calendar](https://huggingface.co/datasets/asu-kim/conversation-calendar/tree/main/Data/calendar) into a **Knowledge Graph (KG)** and then evaluating **LLM (Llama) models** using **ROUGE scores** and **BLEU scores**.
+Our short paper, presented at the **Web Conference 2025 (WWW Companion '25)** ([DOI: 10.1145/3701716.3715473](https://doi.org/10.1145/3701716.3715473)), describes the workflow, the method used to generate our dataset, and the evaluation results of this project.
 
 # Pre-requisite 
 
-Ensure you have Python installed.
+Ensure that Python is installed, as the main scripts are written in Python.
 
 ## 1. Python libraries
-To run this project, the following dependencies are needed:
+To run this project, the following dependencies are required. The model used in this repository has been quantized, so specific versions of `bitsandbytes`, `torch`, and `torchvision` are needed. While updated versions of other dependencies can be used, the specific versions mentioned below work best for this project. You can also create Python or Conda environments, and the available options are listed below.
   
 ```
 pip install accelerate==1.1.0 
@@ -24,6 +25,7 @@ pip install torchvision==0.15.2
 pip install attrs
 pip install psutil
 ```
+If you are using a conda environment:
 ```
 conda install -c conda-forge psutil
 conda install -c conda-forge attrs
@@ -47,7 +49,7 @@ conda install -c conda-forge spacy requests idna click jinja2 pandas pytz six ma
 ```
 ## System Requirements  
 
-To ensure optimal performance, the following hardware and software requirements are utilized. 
+To ensure optimal performance, the following hardware and software requirements are utilized. \
 **Note:** To replicate this model, you can use any equivalent hardware that meets the computational requirements.
 
 ### Hardware Requirements  
@@ -61,17 +63,19 @@ To ensure optimal performance, the following hardware and software requirements 
 
 ### Model Dependencies  
 - **Embedding Model**: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` [Hugging Face repository](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)  
-- **Pre-trained Models**:  [meta-llama/Llama-2-7b-chat-hf](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf) [meta-llama/Llama-2-13b-chat-hf](https://huggingface.co/meta-llama/Llama-2-13b-chat-hf) [meta-llama/Llama-2-70b-chat-hf](https://huggingface.co/meta-llama/Llama-2-70b-chat-hf)
+- **Pre-trained Models**:  [meta-llama/Llama-2-7b-chat-hf](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf)  [meta-llama/Llama-2-13b-chat-hf](https://huggingface.co/meta-llama/Llama-2-13b-chat-hf)  [meta-llama/Llama-2-70b-chat-hf](https://huggingface.co/meta-llama/Llama-2-70b-chat-hf) \
 **Note:** access and use the pre-trained models, authentication keys must be obtained from the [Hugging Face repository](https://huggingface.co/settings/tokens). Ensure you have a valid API token and configure authentication.
 
 Make sure the environment is properly configured to use CUDA for optimal GPU acceleration.
 
 # Files in the repository
-- **`Data/`** - Contains the dataset, which is available as an open-source resource at [conversation-calendar](https://huggingface.co/datasets/asu-kim/conversation-calendar).  
-- **`knowledge_graph_calendar.py`** - Converts calendar data into **knowledge graphs (KGs)**.
-- **`knowledge_graph.py`** -  Converts conversational data into **knowledge graphs (KGs)**. 
-- **`main_ROUGE.py`** - Runs the **Llama models**, tests their performance, and evaluates **ROUGE scores** using both **KG** and **RAG (Retrieval-Augmented Generation)** methods.
-- **`main_BLEU.py`** - Runs the **Llama models**, tests their performance, and evaluates **BLEU scores** using both **KG** and **RAG (Retrieval-Augmented Generation)** methods.
+- **`data/`** - Contains the dataset, which is available as an open-source resource at [conversation-calendar](https://huggingface.co/datasets/asu-kim/conversation-calendar).
+- **`scripts/`** - This directory contains the necessary files to run and obtain evaluation results.
+  
+  - **`knowledge_graph_calendar.py`** - Converts calendar data into **knowledge graphs (KGs)**.
+  - **`knowledge_graph.py`** - Converts conversational data into **knowledge graphs (KGs)**.
+  - **`main_ROUGE.py`** - Runs the **Llama models**, tests their performance, and evaluates **ROUGE scores** using both **KG** and **RAG (Retrieval-Augmented Generation)** methods.
+  - **`main_BLEU.py`** - Runs the **Llama models**, tests their performance, and evaluates **BLEU scores** using both **KG** and **RAG (Retrieval-Augmented Generation)** methods.
 
 # Execution Workflow 
 
@@ -84,8 +88,8 @@ Run the **`knowledge_graph_calendar.py`** and **`knowledge_graph.py`** scripts t
 Run the following commands:  
 
 ```
-python3 knowledge_graph_calendar.py
-python3 knowledge_graph.py
+python knowledge_graph_calendar.py --input <add your output path for the calendar from dataset directory in json format> --output_csv <path to the output.csv file> --output_svg <path to save the vizualisation of kg in svg> --output_png <path to save the vizualisation of kg in png>
+python knowledge_graph.py --input <add your output path for the conversation data from dataset directory in txt format> --output <path to the output.csv file> --image <path to save the vizualisation of kg in png>
 ```
 Example output:
 
@@ -115,10 +119,18 @@ After obtaining the knowledge triples from the previous step, run **`main_ROUGE.
 **Note:** 
 - Ensure that the correct file paths for the dataset, output files, and images are provided.
 - Add the authentication key obtained from the Hugging Face repository.
+- If you are using conversation dataset run this command to obtain the result of the evaluation.
 ```
-python3 main_ROUGE.py
-python3 main_BLEU.py
+python main_ROUGE.py --csv_file <add your output path for the kg from the generated file> --txt_file <add your output path for the conversation from dataset directory> --qa_file <add your output path for the qa from dataset directory> --output_file <add your output path in txt> --plot_png_rouge <add your output path in png> --plot_svg_rouge <add your output path in svg> --plot_png_execution_time <add your output path in png> --plot_svg_execution_time <add your output path in svg> --hf_auth <add your auth key>
+python main_BLEU.py --csv_file <add your output path for the kg from the generated file> --txt_file <add your output path for the conversation from dataset directory> --qa_file <add your output path for the qa from dataset directory> --output_file <add your output path in txt> --plot_png_bleu <add your output path in png> --plot_svg_bleu <add your output path in svg> --hf_auth <add your auth key>
 ```
+- If you are using calendar dataset run this command to obtain the result of the evaluation.
+```
+python main_ROUGE.py --csv_file <add your output path for the kg from the generated file> --json_file <add your output path for the calendar from dataset directory> --qa_file <add your output path for the qa from dataset directory> --output_file <add your output path in txt> --plot_png_rouge <add your output path in png> --plot_svg_rouge <add your output path in svg> --plot_png_execution_time <add your output path in png> --plot_svg_execution_time <add your output path in svg> --hf_auth <add your auth key>
+python main_BLEU.py --csv_file <add your output path for the kg from the generated file> --json_file <add your output path for the calendar from dataset directory> --qa_file <add your output path for the qa from dataset directory> --output_file <add your output path in txt> --plot_png_bleu <add your output path in png> --plot_svg_bleu <add your output path in svg> --hf_auth <add your auth key>
+```
+
+
 Example output file of the evaluation:
 
 **Evaluation Log**  
@@ -175,3 +187,8 @@ In another terminal, monitor GPU performance and memory utilization while runnin
 ```
 nvidia-smi
 ```
+# Contributors
+- Deeksha Prahlad 
+- Chanhee Lee
+- Dongha Kim
+- Hokeun Kim
