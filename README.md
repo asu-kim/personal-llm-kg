@@ -137,9 +137,9 @@ Example output file of the evaluation:
 
 **Evaluation Log**  
 
-==================================================  
+<pre>
 
-**Question 1: Our Approach**  
+<b>Question 1: Our Approach</b>  
 
 **Query:**  
 _When is the “Catch-up with Friends” event scheduled?_  
@@ -182,7 +182,7 @@ The “Catch-up with Friends” event is scheduled on 2024-08-03 from 16:00 to 1
 | **ROUGE-2** | 0.4231  | 0.6471 | 0.5116   |
 | **ROUGE-L** | 0.5185  | 0.7778 | 0.6222   |
 
---------------------------------------------------  
+</pre>
 
 ### Step 3: Monitoring GPU Performance (Optional)
 In another terminal, monitor GPU performance and memory utilization while running the scripts, use NVIDIA-SMI:
