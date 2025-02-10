@@ -1,7 +1,7 @@
 # personal-llm-kg
 Personalization of LLM using Knowledge Graphs. 
 This is a repository containing scripts for processing the **Conversation Calendar** dataset [conversation-calendar](https://huggingface.co/datasets/asu-kim/conversation-calendar/tree/main/Data/calendar) into a **Knowledge Graph (KG)** and then evaluating **LLM (Llama) models** using **ROUGE scores** and **BLEU scores**.
-Our short paper, presented at the **Web Conference 2025 (WWW Companion '25)** ([DOI: 10.1145/3701716.3715473](https://doi.org/10.1145/3701716.3715473)), describes the workflow, the method used to generate our dataset, and the evaluation results of this project.
+For more details, please refer to our research paper, to be presented and published at the **Web Conference 2025** in late April - early May ([WWW'25](https://doi.org/10.1145/3701716.3715473)), which describes the workflow, the method used to generate our dataset, and the evaluation results of this project.
 
 # Pre-requisite 
 
@@ -9,6 +9,8 @@ Ensure that Python is installed, as the main scripts are written in Python.
 
 ## 1. Python libraries
 To run this project, the following dependencies are required. The model used in this repository has been quantized, so specific versions of `bitsandbytes`, `torch`, and `torchvision` are needed. While updated versions of other dependencies can be used, the specific versions mentioned below work best for this project. You can also create Python or Conda environments, and the available options are listed below.
+
+TODO(Deeksha): Elaborate which are strict requirements and which are recommended and why specific versions are required.
   
 ```
 pip install accelerate==1.1.0 
