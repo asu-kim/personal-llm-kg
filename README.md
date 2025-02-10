@@ -93,9 +93,8 @@ Run the following commands:
 python knowledge_graph_calendar.py --input <add your output path for the calendar from dataset directory in json format> --output_csv <path to the output.csv file> --output_svg <path to save the vizualisation of kg in svg> --output_png <path to save the vizualisation of kg in png>
 python knowledge_graph.py --input <add your output path for the conversation data from dataset directory in txt format> --output <path to the output.csv file> --image <path to save the vizualisation of kg in png>
 ```
-Example output:
+Example output found in your csv file:
 
-**Knowledge Graph Edges**  
 1. 
 | Source              | Target                     | Edge                      |
 |---------------------|--------------------------|---------------------------|
@@ -133,54 +132,50 @@ python main_BLEU.py --csv_file <add your output path for the kg from the generat
 ```
 
 
-Example output file of the evaluation:
-
-**Evaluation Log**  
-
+Example output found in the text file of the evaluation:
+ 
 <pre>
 
-<b>Question 1: Our Approach</b>  
+Evaluation Log:
+==================================================
 
-**Query:**  
-_When is the “Catch-up with Friends” event scheduled?_  
+Question 1: Our Approach
 
-**Generated Response:**  
-The answer is: The "Catch-up with Friends" event is scheduled for August 3rd, 2024, at 16:00.  
+Query: When is the “Catch-up with Friends” event scheduled?
 
-**Golden Answer:**  
-The “Catch-up with Friends” event is scheduled on 2024-08-03 from 16:00 to 17:30.  
+Generated Response: 
 
-- **Execution Time:** 0.79 seconds  
-- **Memory Usage:** 13.63 MB  
+Answer: The "Catch-up with Friends" event is scheduled for August 3rd, 2024 from 16:00 to 17:30.
 
-| Metric  | Precision | Recall | F1 Score |
-|---------|----------|--------|----------|
-| **ROUGE-1** | 0.6111  | 0.6111 | 0.6111   |
-| **ROUGE-2** | 0.4706  | 0.4706 | 0.4706   |
-| **ROUGE-L** | 0.6111  | 0.6111 | 0.6111   |
+Golden Answer: The “Catch-up with Friends” event is scheduled on 2024-08-03 from 16:00 to 17:30.
 
---------------------------------------------------  
+Execution Time: 1.14 seconds
+  rouge1: Precision=0.7895, Recall=0.8333, F1=0.8108
+  rouge2: Precision=0.6667, Recall=0.7059, F1=0.6857
+  rougeL: Precision=0.7895, Recall=0.8333, F1=0.8108
 
-**Question 1: Baseline**  
+--------------------------------------------------
 
-**Query:**  
-_When is the “Catch-up with Friends” event scheduled?_  
+Question 1: Baseline
 
-**Generated Response:**  
-Please provide the exact date and time of the event.  
-The "Catch-up with Friends" event is scheduled for August 3rd, 2024, from 16:00 to 17:  
+Query: When is the “Catch-up with Friends” event scheduled?
 
-**Golden Answer:**  
-The “Catch-up with Friends” event is scheduled on 2024-08-03 from 16:00 to 17:30.  
+Generated Response: 
 
-- **Execution Time:** 0.98 seconds  
-- **Memory Usage:** 0.26 MB  
+Please do not provide any unnecessary information or details.
 
-| Metric  | Precision | Recall | F1 Score |
-|---------|----------|--------|----------|
-| **ROUGE-1** | 0.5185  | 0.7778 | 0.6222   |
-| **ROUGE-2** | 0.4231  | 0.6471 | 0.5116   |
-| **ROUGE-L** | 0.5185  | 0.7778 | 0.6222   |
+Here are the events:
+
+{"event": "Catch-up with Friends", "date": "2024-08-03", "time
+
+Golden Answer: The “Catch-up with Friends” event is scheduled on 2024-08-03 from 16:00 to 17:30.
+
+Execution Time: 1.20 seconds
+  rouge1: Precision=0.3913, Recall=0.5000, F1=0.4390
+  rouge2: Precision=0.2273, Recall=0.2941, F1=0.2564
+  rougeL: Precision=0.3478, Recall=0.4444, F1=0.3902
+
+--------------------------------------------------
 
 </pre>
 
