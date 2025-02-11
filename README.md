@@ -7,7 +7,7 @@ For more details, please refer to our research paper, to be presented and publis
 
 Ensure that Python is installed, as the main scripts are written in Python.
 
-## 1. Python libraries
+## Library Dependencies
 To run this project, the following dependencies are required. The model used in this repository has been quantized using 4-bit precision (bnb_4bit) and relies on bitsandbytes for efficient matrix operations and memory optimization. So specific versions of bitsandbytes, torch, and torchvision are mandatory for compatibility. 
 While newer versions of other dependencies may work, the specific versions listed below have been tested and are recommended for optimal performance.
 
