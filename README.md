@@ -1,11 +1,18 @@
-# personal-llm-kg
-Personalization of LLM using Knowledge Graphs. 
-This is a repository containing scripts for processing the **Conversation Calendar** dataset [conversation-calendar](https://huggingface.co/datasets/asu-kim/conversation-calendar/tree/main/Data/calendar) into a **Knowledge Graph (KG)** and then evaluating **LLM (Llama) models** using **ROUGE scores** and **BLEU scores**.
+# Overview
+This is our repository of the working implementation of our proposed approach to the personalization of LLMs using Knowledge Graphs, namely, **personal-llm-kg**. 
+Our implementation in this repository includes scripts for processing our **Conversation Calendar** dataset [conversation-calendar](https://huggingface.co/datasets/asu-kim/conversation-calendar/tree/main/Data/calendar) into a **Knowledge Graph (KG)** and then evaluating **LLM (Llama) models** using **ROUGE scores** and **BLEU scores**.
 For more details, please refer to our research paper, to be presented and published at the **Web Conference 2025** in late April - early May ([WWW'25](https://doi.org/10.1145/3701716.3715473)), which describes the workflow, the method used to generate our dataset, and the evaluation results of this project.
 Here is the link to our short explanation video : [WWW'25 explanation video](https://www.youtube.com/watch?v=lwW8FWrzwzM)
-# Pre-requisite 
 
-Ensure that Python is installed, as the main scripts are written in Python.
+# Addtional materials
+- Our conversation calendar dataset for evaluation of our proposed approach: [link](https://huggingface.co/datasets/asu-kim/conversation-calendar/tree/main/Data/calendar)
+- Our YouTube video explaining our proposed approach:  [link](https://www.youtube.com/watch?v=lwW8FWrzwzM)
+- Our WWW'25 paper: [link](https://doi.org/10.1145/3701716.3715473)
+
+
+# Prerequisites 
+
+You need Python installed, as the main scripts are written in Python.
 
 ## Library Dependencies
 To run this project, the following dependencies are required. The model used in this repository has been quantized using 4-bit precision (bnb_4bit) and relies on bitsandbytes for efficient matrix operations and memory optimization. So specific versions of bitsandbytes, torch, and torchvision are mandatory for compatibility. 
@@ -67,11 +74,11 @@ To ensure optimal performance, the following hardware and software requirements 
 ### Model Dependencies  
 - **Embedding Model**: `sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2` [Hugging Face repository](https://huggingface.co/sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2)  
 - **Pre-trained Models**:  [meta-llama/Llama-2-7b-chat-hf](https://huggingface.co/meta-llama/Llama-2-7b-chat-hf)  [meta-llama/Llama-2-13b-chat-hf](https://huggingface.co/meta-llama/Llama-2-13b-chat-hf)  [meta-llama/Llama-2-70b-chat-hf](https://huggingface.co/meta-llama/Llama-2-70b-chat-hf) \
-**Note:** access and use the pre-trained models, authentication keys must be obtained from the [Hugging Face repository](https://huggingface.co/settings/tokens). Ensure you have a valid API token and configure authentication.
+**Note:** Please access and use the pre-trained models, authentication keys must be obtained from the [Hugging Face repository](https://huggingface.co/settings/tokens). Ensure you have a valid API token and configure authentication.
 
 Make sure the environment is properly configured to use CUDA for optimal GPU acceleration.
 
-# Files in the repository
+# Files and directories in this repository
 - **`data/`** - Contains the dataset, which is available as an open-source resource at [conversation-calendar](https://huggingface.co/datasets/asu-kim/conversation-calendar).
 - **`scripts/`** - This directory contains the necessary files to run and obtain evaluation results.
   
@@ -82,6 +89,8 @@ Make sure the environment is properly configured to use CUDA for optimal GPU acc
 
 # Execution Workflow 
 
+Below is the workflow to execute our implementation with our dataset and reproduce our results.
+
 ### Step 1: Create the Knowledge Graph  
 Run the **`knowledge_graph_calendar.py`** and **`knowledge_graph.py`** scripts to generate the knowledge graph.  
 
@@ -91,10 +100,10 @@ Run the **`knowledge_graph_calendar.py`** and **`knowledge_graph.py`** scripts t
 Run the following commands:  
 
 ```
-python knowledge_graph_calendar.py --input <add your output path for the calendar from dataset directory in json format> --output_csv <path to the output.csv file> --output_svg <path to save the vizualisation of kg in svg> --output_png <path to save the vizualisation of kg in png>
-python knowledge_graph.py --input <add your output path for the conversation data from dataset directory in txt format> --output <path to the output.csv file> --image <path to save the vizualisation of kg in png>
+python knowledge_graph_calendar.py --input <add your output path for the calendar from dataset directory in JSON format> --output_csv <path to the output.csv file> --output_svg <path to save the vizualization of kg in svg> --output_png <path to save the vizualization of kg in png>
+python knowledge_graph.py --input <add your output path for the conversation data from dataset directory in txt format> --output <path to the output.csv file> --image <path to save the vizualization of kg in png>
 ```
-Example output found in your csv file:
+Example output found in your CSV file:
 
 1. 
 | Source              | Target                     | Edge                      |
@@ -181,12 +190,12 @@ Execution Time: 1.20 seconds
 </pre>
 
 ### Step 3: Monitoring GPU Performance (Optional)
-In another terminal, monitor GPU performance and memory utilization while running the scripts, use NVIDIA-SMI:
+In another terminal, monitor GPU performance and memory utilization while running the scripts, please use NVIDIA-SMI:
 ```
 nvidia-smi
 ```
 # Contributors
-- Deeksha Prahlad 
-- Chanhee Lee
-- Dongha Kim
-- Hokeun Kim
+- Deeksha Prahlad (dprahlad@asu.edu), Ph.D. student at Arizona State University
+- Chanhee Lee, Former visiting scholar at Arizona State University
+- Dongha Kim, Ph.D. student at Arizona State University
+- Hokeun Kim (hokeun@asu.edu, https://hokeun.github.io/), Assistant professor at Arizona State University 
