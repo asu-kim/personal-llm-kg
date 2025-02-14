@@ -2,7 +2,7 @@
 Personalization of LLM using Knowledge Graphs. 
 This is a repository containing scripts for processing the **Conversation Calendar** dataset [conversation-calendar](https://huggingface.co/datasets/asu-kim/conversation-calendar/tree/main/Data/calendar) into a **Knowledge Graph (KG)** and then evaluating **LLM (Llama) models** using **ROUGE scores** and **BLEU scores**.
 For more details, please refer to our research paper, to be presented and published at the **Web Conference 2025** in late April - early May ([WWW'25](https://doi.org/10.1145/3701716.3715473)), which describes the workflow, the method used to generate our dataset, and the evaluation results of this project.
-
+Here is the link to our short explanation video : [WWW'25 explanation video](https://www.youtube.com/watch?v=lwW8FWrzwzM)
 # Pre-requisite 
 
 Ensure that Python is installed, as the main scripts are written in Python.
