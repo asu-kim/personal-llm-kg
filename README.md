@@ -79,8 +79,8 @@ To ensure optimal performance, the following hardware and software requirements 
 Make sure the environment is properly configured to use CUDA for optimal GPU acceleration.
 
 # Files and directories in this repository
-- **`data/`** - Contains the dataset, which is available as an open-source resource at [conversation-calendar](https://huggingface.co/datasets/asu-kim/conversation-calendar).
-- **`scripts/`** - This directory contains the necessary files to run and obtain evaluation results.
+- **`data/`** - Contains our dataset, which is also available as an open-source resource at [conversation-calendar](https://huggingface.co/datasets/asu-kim/conversation-calendar).
+- **`scripts/`** - Contains the necessary files to run and obtain evaluation results.
   
   - **`knowledge_graph_calendar.py`** - Converts calendar data into **knowledge graphs (KGs)**.
   - **`knowledge_graph.py`** - Converts conversational data into **knowledge graphs (KGs)**.
