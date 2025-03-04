@@ -160,7 +160,7 @@ def main():
     all_triples = extract_triples(data)
 
     if not all_triples:  # Check if no valid triples were extracted
-        print("❌ No valid triples found. Check the input JSON format.")
+        print(" No valid triples found. Check the input JSON format.")
         return
 
     print("Extracted Triples:", all_triples)
@@ -180,7 +180,7 @@ def main():
     df_graph = build_knowledge_graph(sources, targets, relations, args.output_csv)
 
     if df_graph.empty:
-        print("❌ Empty graph. No valid relationships found.")
+        print("Empty graph. No valid relationships found.")
         return
 
     # Visualize the knowledge graph
