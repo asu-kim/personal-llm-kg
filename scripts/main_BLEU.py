@@ -63,7 +63,7 @@ docs = [
 embeddings = embed_model.embed_documents(docs)
 
 # Load Llama Model
-model_id = 'meta-llama/Llama-2-7b-chat-hf'
+model_id = 'meta-llama/Llama-2-13b-chat-hf'
 # Device configuration
 device = f'cuda:{cuda.current_device()}' if cuda.is_available() else 'cpu'
 
@@ -106,7 +106,7 @@ generate_text = transformers.pipeline(
 )
 
 # Load CSV file of the knowledge graph generated
-csv_file = "<path_to_csv_file>"
+# csv_file = "<path_to_csv_file>"
 
 # Combine every 3 rows
 df = pd.read_csv(csv_file)
